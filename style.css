@@ -1,0 +1,279 @@
+    /* CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #222;
+      transition: background-color 0.3s, color 0.3s;
+      scroll-behavior: smooth;
+    }
+    body.dark {
+      background-color: #121212;
+      color: #eee;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    /* Header */
+    header {
+      background-color: #004aad;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s;
+    }
+    body.dark header {
+      background-color: #66aaff; /* lighter blue for dark mode */
+      color: #121212;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    /* Dark mode button */
+    #dark-toggle {
+      background: none;
+      border: 2px solid white;
+      border-radius: 25px;
+      color: white;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+    body.dark #dark-toggle {
+      border-color: #121212;
+      color: #121212;
+    }
+    #dark-toggle:hover {
+      background-color: white;
+      color: #004aad;
+    }
+    body.dark #dark-toggle:hover {
+      background-color: #121212;
+      color: #66aaff;
+      border-color: #66aaff;
+    }
+
+    /* Hero */
+    #hero {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    #hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+    #hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.8s;
+    }
+    /* Typing effect for tagline */
+    #typed-text {
+      color: #004aad;
+      font-weight: 700;
+      font-size: 1.4rem;
+      height: 1.8rem;
+      margin-top: 1rem;
+      min-height: 1.8rem;
+      transition: color 0.3s;
+    }
+    body.dark #typed-text {
+      color: #66aaff;
+    }
+
+    /* Sections */
+    section {
+      margin: 3rem 0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation-fill-mode: forwards;
+      animation-duration: 0.8s;
+      animation-timing-function: ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+      animation-name: fadeInUp;
+    }
+
+    h2.section-title {
+      font-size: 2rem;
+      border-bottom: 3px solid #004aad;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+    body.dark h2.section-title {
+      border-color: #66aaff;
+    }
+
+    /* Skills */
+    #skills ul {
+      list-style: none;
+      padding: 0;
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    #skills li {
+  background-color: #004aad;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  user-select: none;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+#skills li:hover {
+  transform: scale(1.15) translateY(-5px);
+  background-color: #3377ff;
+  box-shadow: 0 8px 15px rgba(51, 119, 255, 0.6);
+  color: #fff;
+}
+
+body.dark #skills li {
+  background-color: #66aaff;
+  color: #121212;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark #skills li:hover {
+  transform: scale(1.15) translateY(-5px);
+  background-color: #99caff;
+  box-shadow: 0 8px 15px rgba(153, 202, 255, 0.6);
+  color: #121212;
+}
+
+    body.dark #skills li {
+      background-color: #66aaff;
+      color: #121212;
+    }
+
+    /* Projects */
+    #projects .project {
+      background-color: #eaeaea;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1rem auto;
+      max-width: 700px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease, background-color 0.3s;
+    }
+    #projects .project:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    #projects .project h3 {
+      margin-top: 0;
+      color: #004aad;
+      transition: color 0.3s;
+    }
+    #projects .project p {
+      margin: 0.7rem 0 1.1rem;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    #projects .project a {
+      font-weight: 600;
+      color: #004aad;
+      transition: color 0.3s;
+    }
+    body.dark #projects .project {
+      background-color: #222;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+    }
+    body.dark #projects .project:hover {
+      box-shadow: 0 8px 16px rgba(255,255,255,0.2);
+    }
+    body.dark #projects .project h3,
+    body.dark #projects .project a {
+      color: #66aaff;
+    }
+
+    /* Contact */
+    #contact {
+      text-align: center;
+      padding-bottom: 3rem;
+    }
+    #contact a {
+      color: #004aad;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    #contact a:hover {
+      text-decoration: underline;
+    }
+    body.dark #contact a {
+      color: #66aaff;
+    }
+
+    /* About & Education */
+    #about, #education {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      padding: 0 1rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      #hero h2 {
+        font-size: 2rem;
+      }
+    }
