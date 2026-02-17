@@ -1,0 +1,111 @@
+[
+  {
+    "id": "bwa-pc-builds",
+    "title": "BWA Website",
+    "summary": "Responsive marketing site for a small PC building business selling pre-built PCs.",
+    "type": "website",
+    "year": 2025,
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "links": [
+      { "label": "Live", "url": "https://n1nj4-c0d3r.github.io/BWA-Pc-Builds/index.html" }
+    ],
+    "featured": true,
+    "details": {
+      "problem": "The business needed a clean site that looks trustworthy and works well on mobile.",
+      "solution": "Designed and built a fast landing-style website with clear sections and calls to action.",
+      "highlights": ["Mobile-first layout", "Clear content structure", "Polished visual design"],
+      "role": "Design and development"
+    },
+    "media": {
+      "thumbnail": "assets/projects/BWA PC Builds/Img1.png",
+      "gallery": [
+        "assets/projects/BWA PC Builds/Vid1.mp4"
+      ]
+    }
+  },
+  {
+    "id": "gadget-labs-website",
+    "title": "Gadget Labs Website",
+    "summary": "Responsive ecommerce-style site concept for a business that sells electronics.",
+    "type": "website",
+    "year": 2025,
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "links": [
+      { "label": "Live", "url": "https://gadgetlabsofficial.github.io/Website/" }
+    ],
+    "featured": true,
+    "details": {
+      "problem": "Show products in a modern layout that feels like a real store experience.",
+      "solution": "Built a responsive layout with strong typography, clean sections, and a consistent UI.",
+      "highlights": ["Responsive layout", "Reusable components", "Consistent styling"],
+      "role": "Design and development"
+    },
+    
+    "media": {
+      "thumbnail":"assets/projects/Gadget Labs/img1.png",
+      "gallery": []
+    }
+  },
+
+  {
+    "id": "trading-algo",
+    "title": "Trading Algo",
+    "summary": "MetaTrader 5 (MT5) demo/paper trading bot project with docs, config examples, scripts, and tests.",
+    "type": "python",
+    "year": 2026,
+    "tags": ["Python", "MT5", "YAML"],
+    "links": [{ "label": "Repo", "url": "https://github.com/Ali-Raza-H/Trading_Algo" }],
+    "featured": true,
+    "details": {
+      "problem": "Run a configurable demo/paper trading bot for MT5 with a clear dev workflow and documentation.",
+      "solution": "Organized a Python codebase with config templates, environment checks, and a simple CLI entry to run the bot.",
+      "highlights": ["Config templates and examples", "Doctor script for environment checks", "Demo/paper trading focus"],
+      "role": "Solo project"
+    },
+    "media": {
+      "gallery": []
+    }
+  },
+  {
+    "id": "health-hub",
+    "title": "Health Hub",
+    "summary": "Offline-first personal health tracker built with Kotlin + Jetpack Compose (Material 3).",
+    "type": "app",
+    "tags": ["Android", "Kotlin", "Jetpack Compose"],
+    "links": [],
+    "featured": true,
+    "details": {
+      "problem": "Track gym, diet, and progress in one place, even when offline.",
+      "solution": "Built an offline-first Android app with multiple flows and a clean, modern UI using Compose.",
+      "highlights": [
+        "Today hub (daily summary + quick actions)",
+        "Gym (weekly plan + workout session logging)",
+        "Diet (meal logging + macros + water)",
+        "Progress (weight trend + charts)",
+        "Settings (profile/goals/targets, reminders, export/import)"
+      ],
+      "role": "Solo project"
+    },
+    "media": {
+      "gallery": []
+    }
+  },
+  {
+    "id": "offline-voice-assistant",
+    "title": "Offline Voice Assistant",
+    "summary": "Offline voice assistant using speech recognition, text-to-speech, and a local LLM (GPT4All).",
+    "type": "python",
+    "tags": ["Python", "Speech", "GPT4All"],
+    "links": [],
+    "featured": false,
+    "details": {
+      "problem": "Hands-free interaction without relying on a cloud-only assistant.",
+      "solution": "Built a local voice loop that listens, transcribes, generates responses with a local model, and speaks back.",
+      "highlights": ["Speech-to-text via microphone", "Text-to-speech responses", "Local LLM generation (GPT4All)"],
+      "role": "Solo project"
+    },
+    "media": {
+      "gallery": []
+    }
+  }
+]

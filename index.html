@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ali Raza | Portfolio</title>
+    <meta
+      name="description"
+      content="Ali Raza - aspiring web developer and creative technologist. Websites, repos, and tools with a design-first mindset."
+    />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="header-inner container">
+        <a class="brand" href="#top" aria-label="Go to top">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">Ali Raza</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <button id="theme-toggle" class="btn btn-ghost" type="button">
+            <span class="btn-label">Theme</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="top" class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Aspiring Web Developer / Creative Technologist</p>
+            <h1>Building clean, fast, and memorable web experiences.</h1>
+            <p class="lede">
+              I'm Ali Raza, a student developer who blends design + code to ship polished projects.
+            </p>
+
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#projects">See projects</a>
+              <a class="btn btn-secondary" href="mailto:khadamalihussain@gmail.com">Email me</a>
+            </div>
+
+            <div class="ticker" aria-label="Highlights">
+              <span class="ticker-label">Currently:</span>
+              <span id="tagline" class="ticker-text">Learning web development.</span>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Quick info">
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="stat-label">Name</div>
+                <div class="stat-value">Ali Raza</div>
+              </div>
+              <div class="stat" id="age-row">
+                <div class="stat-label">Age</div>
+                <div class="stat-value"><span id="age" aria-label="Age"></span></div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Focus</div>
+                <div class="stat-value">Web dev + design</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">School</div>
+                <div class="stat-value">Sixth Form Bolton</div>
+              </div>
+            </div>
+            <div class="hero-links">
+              <a class="chip" href="tel:+447396883621">+44 7396 883621</a>
+              <a class="chip" href="mailto:khadamalihussain@gmail.com">khadamalihussain@gmail.com</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <header class="section-head">
+            <h2>About</h2>
+            <p>
+              I'm a passionate student currently studying at Sixth Form Bolton. I enjoy combining
+              creativity with technology to build meaningful projects.
+            </p>
+          </header>
+
+          <div class="two-col">
+            <div class="card">
+              <h3>What I build</h3>
+              <p>
+                Responsive websites, small tools, and prototypes where design clarity and solid
+                fundamentals matter.
+              </p>
+              <p class="muted">I'm always improving my JavaScript and pushing into more ambitious builds.</p>
+            </div>
+            <div class="card">
+              <h3>How I work</h3>
+              <ul class="checklist">
+                <li>Design-first thinking</li>
+                <li>Mobile-first layouts</li>
+                <li>Iterate fast, polish last</li>
+                <li>Performance and readability</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <header class="section-head">
+            <h2>Projects</h2>
+            <p>
+              Websites, repos, Python programs, and tools. Filter by type and open a case study.
+            </p>
+          </header>
+
+          <div class="projects-toolbar">
+            <div id="project-filters" class="filters" aria-label="Project filters"></div>
+            <div id="projects-hint" class="projects-hint" aria-live="polite"></div>
+          </div>
+
+          <div id="projects-grid" class="projects-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="container">
+          <header class="section-head">
+            <h2>Skills</h2>
+            <p>Languages, frontend, and creative tools I use to ship work.</p>
+          </header>
+
+          <div class="skill-groups">
+            <div class="card">
+              <h3>Languages</h3>
+              <div class="chips">
+                <span class="chip">HTML</span>
+                <span class="chip">CSS</span>
+                <span class="chip">JavaScript</span>
+                <span class="chip">Python</span>
+                <span class="chip">Java</span>
+                <span class="chip">C# (learning)</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Design</h3>
+              <div class="chips">
+                <span class="chip">Figma</span>
+                <span class="chip">Photoshop</span>
+                <span class="chip">Illustrator</span>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Video</h3>
+              <div class="chips">
+                <span class="chip">DaVinci Resolve</span>
+                <span class="chip">Premiere Pro</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section">
+        <div class="container">
+          <header class="section-head">
+            <h2>Education</h2>
+            <p>Current study and what I'm focusing on.</p>
+          </header>
+
+          <div class="card">
+            <h3>Sixth Form Bolton <span class="muted">&mdash; Student</span></h3>
+            <ul class="bullets">
+              <li>Currently studying Computer Science and related courses.</li>
+              <li>Building projects across web development, design, and video editing.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container">
+          <header class="section-head">
+            <h2>Contact</h2>
+            <p>Feel free to reach out for collaborations, questions, or just to say hi.</p>
+          </header>
+
+          <div class="contact-card card">
+            <div class="contact-actions">
+              <a class="btn btn-primary" href="mailto:khadamalihussain@gmail.com">Email</a>
+              <a class="btn btn-secondary" href="tel:+447396883621">Call</a>
+            </div>
+            <div class="contact-details">
+              <a class="chip" href="mailto:khadamalihussain@gmail.com">khadamalihussain@gmail.com</a>
+              <a class="chip" href="tel:+447396883621">+44 7396 883621</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="muted">(c) <span id="year"></span> Ali Raza</p>
+      </div>
+    </footer>
+
+    <div id="project-modal" class="modal" aria-hidden="true">
+      <div class="modal-overlay" data-modal-close></div>
+      <div
+        class="modal-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        tabindex="-1"
+      >
+        <button class="modal-close" type="button" data-modal-close aria-label="Close project details">
+          <span aria-hidden="true">x</span>
+        </button>
+        <div class="modal-body">
+          <div class="modal-head">
+            <div>
+              <div id="modal-badge" class="badge">Project</div>
+              <h3 id="modal-title"></h3>
+              <div id="modal-meta" class="modal-meta"></div>
+            </div>
+          </div>
+
+          <div id="modal-links" class="modal-links"></div>
+          <div id="modal-content" class="modal-content"></div>
+          <div id="modal-gallery" class="modal-gallery"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
