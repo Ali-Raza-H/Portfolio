@@ -1,0 +1,461 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin | Portfolio</title>
+    <meta name="color-scheme" content="dark light" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="admin.css" />
+    <script src="admin.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner container">
+        <a class="brand" href="../index.html" aria-label="Back to site">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">Ali Raza</span>
+        </a>
+
+        <nav class="site-nav admin-nav" aria-label="Admin tabs">
+          <button class="admin-tab-btn" type="button" data-tab="projects" aria-pressed="true">
+            Projects
+          </button>
+          <button class="admin-tab-btn" type="button" data-tab="content" aria-pressed="false">
+            Site content
+          </button>
+        </nav>
+
+        <div class="header-actions">
+          <a class="btn btn-ghost btn-sm" href="../index.html">View site</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <div class="container">
+        <section class="card admin-help" aria-label="How to use">
+          <h3>How to use</h3>
+          <ul class="bullets">
+            <li>Run via VS Code Live Server (or any localhost server) so fetch() works.</li>
+            <li>Use <span class="mono">Open fileâ€¦</span> to enable <span class="mono">Save</span> (Chromium/Edge).</li>
+            <li>If Save isnâ€™t available, use <span class="mono">Download JSON</span> and replace the file manually.</li>
+            <li>Use <span class="mono">Sync Devs Folder</span> and choose <span class="mono">C:/Users/khada/Desktop/Devs/</span> to auto-generate project entries.</li>
+            <li class="muted">No auth/login hereâ€”keep this for local use.</li>
+          </ul>
+        </section>
+
+        <section id="tab-projects" class="admin-tab" aria-label="Projects admin">
+          <div class="admin-toolbar">
+            <div id="projects-status" class="admin-status" aria-live="polite"></div>
+            <div class="admin-actions">
+              <button id="projects-sync-folder" class="btn btn-secondary btn-sm" type="button">Sync Devs Folder</button>
+              <button id="projects-open" class="btn btn-secondary btn-sm" type="button">Open fileâ€¦</button>
+              <button id="projects-save" class="btn btn-primary btn-sm" type="button" disabled>Save</button>
+              <button id="projects-download" class="btn btn-ghost btn-sm" type="button">Download JSON</button>
+            </div>
+          </div>
+
+          <div class="admin-split">
+            <aside class="card admin-pane admin-pane-left" aria-label="Project list">
+              <div class="field">
+                <label for="projects-search">Search</label>
+                <input id="projects-search" type="search" placeholder="Search by title, tag, or typeâ€¦" />
+              </div>
+
+              <div class="admin-row admin-row-wrap">
+                <button id="project-add" class="btn btn-secondary btn-sm" type="button">Add</button>
+                <button id="project-duplicate" class="btn btn-secondary btn-sm" type="button" disabled>
+                  Duplicate
+                </button>
+                <button id="project-delete" class="btn btn-ghost btn-sm" type="button" disabled>Delete</button>
+              </div>
+
+              <div class="admin-row">
+                <button id="project-up" class="btn btn-ghost btn-sm" type="button" disabled>Move up</button>
+                <button id="project-down" class="btn btn-ghost btn-sm" type="button" disabled>Move down</button>
+              </div>
+
+              <div id="projects-list" class="admin-list" role="list"></div>
+            </aside>
+
+            <section class="card admin-pane admin-pane-right" aria-label="Project editor">
+              <div class="admin-pane-head">
+                <h3 class="admin-pane-title">Editor</h3>
+                <div id="project-issues" class="admin-issues" aria-live="polite"></div>
+              </div>
+
+              <form id="project-form" class="admin-form">
+                <div class="admin-grid-2">
+                  <div class="field">
+                    <label for="p-title">Title <span class="req">*</span></label>
+                    <input id="p-title" type="text" autocomplete="off" />
+                  </div>
+
+                  <div class="field">
+                    <label for="p-id">ID <span class="req">*</span></label>
+                    <input id="p-id" type="text" autocomplete="off" />
+                  </div>
+                </div>
+
+                <div class="admin-grid-3">
+                  <div class="field">
+                    <label for="p-type">Type</label>
+                    <select id="p-type">
+                      <option value="website">website</option>
+                      <option value="repo">repo</option>
+                      <option value="python">python</option>
+                      <option value="app">app</option>
+                      <option value="tool">tool</option>
+                      <option value="other">other</option>
+                      <option value="custom">customâ€¦</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="p-type-custom">Custom type</label>
+                    <input id="p-type-custom" type="text" autocomplete="off" disabled />
+                  </div>
+
+                  <div class="field">
+                    <label for="p-year">Year</label>
+                    <input id="p-year" type="number" inputmode="numeric" />
+                  </div>
+                </div>
+
+                <div class="field field-inline">
+                  <input id="p-featured" type="checkbox" />
+                  <label for="p-featured">Featured</label>
+                </div>
+
+                <div class="field">
+                  <label for="p-summary">Summary</label>
+                  <textarea id="p-summary" rows="3"></textarea>
+                </div>
+
+                <div class="field">
+                  <label>Tags</label>
+                  <div id="p-tags" class="admin-chips" aria-label="Tags"></div>
+                  <div class="admin-row">
+                    <input id="p-tag-add" type="text" placeholder="Add tagâ€¦" autocomplete="off" />
+                    <button id="p-tag-add-btn" class="btn btn-secondary btn-sm" type="button">Add</button>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label>Links</label>
+                  <div id="p-links" class="admin-list-rows" aria-label="Links"></div>
+                  <div class="admin-row admin-row-wrap">
+                    <button id="p-link-add" class="btn btn-secondary btn-sm" type="button">Add link</button>
+                    <button id="p-link-add-github" class="btn btn-ghost btn-sm" type="button">Add GitHub</button>
+                    <button id="p-link-add-live" class="btn btn-ghost btn-sm" type="button">Add Live Demo</button>
+                  </div>
+                </div>
+
+                <div class="admin-divider"></div>
+
+                <h4 class="admin-subhead">Details</h4>
+                <div class="field">
+                  <label for="p-problem">Problem</label>
+                  <textarea id="p-problem" rows="3"></textarea>
+                </div>
+                <div class="field">
+                  <label for="p-solution">Solution</label>
+                  <textarea id="p-solution" rows="3"></textarea>
+                </div>
+                <div class="field">
+                  <label for="p-role">Role</label>
+                  <input id="p-role" type="text" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label>Highlights</label>
+                  <div id="p-highlights" class="admin-list-rows" aria-label="Highlights"></div>
+                  <div class="admin-row">
+                    <input id="p-highlight-add" type="text" placeholder="Add highlightâ€¦" autocomplete="off" />
+                    <button id="p-highlight-add-btn" class="btn btn-secondary btn-sm" type="button">Add</button>
+                  </div>
+                </div>
+
+                <div class="admin-divider"></div>
+
+                <h4 class="admin-subhead">Media</h4>
+                <div class="field">
+                  <label for="p-thumb">Thumbnail path</label>
+                  <input id="p-thumb" type="text" placeholder="assets/projects/..." autocomplete="off" />
+                </div>
+
+                <div class="admin-grid-3">
+                  <div class="field">
+                    <label for="p-video-provider">Video provider</label>
+                    <select id="p-video-provider">
+                      <option value="">none</option>
+                      <option value="youtube">youtube</option>
+                      <option value="vimeo">vimeo</option>
+                      <option value="file">file/local</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="p-video-id">Video id</label>
+                    <input id="p-video-id" type="text" autocomplete="off" />
+                  </div>
+                  <div class="field">
+                    <label for="p-video-url">Video url (file/local)</label>
+                    <input id="p-video-url" type="text" autocomplete="off" />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label>Gallery paths</label>
+                  <div id="p-gallery" class="admin-list-rows" aria-label="Gallery"></div>
+                  <div class="admin-row">
+                    <input id="p-gallery-add" type="text" placeholder="assets/projects/..." autocomplete="off" />
+                    <button id="p-gallery-add-btn" class="btn btn-secondary btn-sm" type="button">Add</button>
+                  </div>
+                </div>
+              </form>
+            </section>
+          </div>
+        </section>
+
+        <section id="tab-content" class="admin-tab" aria-label="Site content admin" hidden>
+          <div class="admin-toolbar">
+            <div id="content-status" class="admin-status" aria-live="polite"></div>
+            <div class="admin-actions">
+              <button id="content-open" class="btn btn-secondary btn-sm" type="button">Open fileâ€¦</button>
+              <button id="content-save" class="btn btn-primary btn-sm" type="button" disabled>Save</button>
+              <button id="content-download" class="btn btn-ghost btn-sm" type="button">Download JSON</button>
+            </div>
+          </div>
+
+          <section class="card">
+            <div class="admin-pane-head">
+              <h3 class="admin-pane-title">Editor</h3>
+              <div id="content-issues" class="admin-issues" aria-live="polite"></div>
+            </div>
+
+            <form id="content-form" class="admin-form">
+              <details class="admin-section" open>
+                <summary>General</summary>
+                <div class="field">
+                  <label for="c-birthdate">Birthdate ISO (shows age)</label>
+                  <input id="c-birthdate" type="text" placeholder="YYYY-MM-DD" autocomplete="off" />
+                </div>
+              </details>
+
+              <details class="admin-section" open>
+                <summary>Hero</summary>
+                <div class="field">
+                  <label for="c-hero-eyebrow">Eyebrow</label>
+                  <input id="c-hero-eyebrow" type="text" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label for="c-hero-title">Title</label>
+                  <input id="c-hero-title" type="text" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label for="c-hero-lede">Lede</label>
+                  <textarea id="c-hero-lede" rows="3"></textarea>
+                </div>
+
+                <div class="admin-grid-2">
+                  <div class="field">
+                    <label for="c-hero-illustration-src">Illustration image src</label>
+                    <input id="c-hero-illustration-src" type="text" placeholder="assets/illustrations/me.png" autocomplete="off" />
+                  </div>
+                  <div class="field">
+                    <label for="c-hero-illustration-alt">Illustration alt text</label>
+                    <input id="c-hero-illustration-alt" type="text" placeholder="Ali illustrated portrait" autocomplete="off" />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label>Taglines</label>
+                  <div id="c-taglines" class="admin-list-rows" aria-label="Hero taglines"></div>
+                  <button id="c-tagline-add" class="btn btn-secondary btn-sm" type="button">Add tagline</button>
+                </div>
+
+                <div class="field">
+                  <label>CTA buttons</label>
+                  <div class="admin-list-rows" aria-label="Hero CTA buttons">
+                    <div class="admin-row admin-cta-row">
+                      <input id="c-cta0-label" type="text" placeholder="Label" />
+                      <input id="c-cta0-href" type="text" placeholder="Href" />
+                      <select id="c-cta0-variant">
+                        <option value="primary">primary</option>
+                        <option value="secondary">secondary</option>
+                        <option value="ghost">ghost</option>
+                      </select>
+                    </div>
+                    <div class="admin-row admin-cta-row">
+                      <input id="c-cta1-label" type="text" placeholder="Label" />
+                      <input id="c-cta1-href" type="text" placeholder="Href" />
+                      <select id="c-cta1-variant">
+                        <option value="primary">primary</option>
+                        <option value="secondary">secondary</option>
+                        <option value="ghost">ghost</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="admin-grid-3">
+                  <div class="field">
+                    <label for="c-qi-name">Quick info: Name</label>
+                    <input id="c-qi-name" type="text" autocomplete="off" />
+                  </div>
+                  <div class="field">
+                    <label for="c-qi-focus">Quick info: Focus</label>
+                    <input id="c-qi-focus" type="text" autocomplete="off" />
+                  </div>
+                  <div class="field">
+                    <label for="c-qi-school">Quick info: School</label>
+                    <input id="c-qi-school" type="text" autocomplete="off" />
+                  </div>
+                </div>
+
+                <div class="admin-grid-2">
+                  <div class="field">
+                    <label for="c-chip-phone-label">Phone label</label>
+                    <input id="c-chip-phone-label" type="text" autocomplete="off" />
+                  </div>
+                  <div class="field">
+                    <label for="c-chip-phone-href">Phone href</label>
+                    <input id="c-chip-phone-href" type="text" placeholder="tel:+" autocomplete="off" />
+                  </div>
+                </div>
+
+                <div class="admin-grid-2">
+                  <div class="field">
+                    <label for="c-chip-email-label">Email label</label>
+                    <input id="c-chip-email-label" type="text" autocomplete="off" />
+                  </div>
+                  <div class="field">
+                    <label for="c-chip-email-href">Email href</label>
+                    <input id="c-chip-email-href" type="text" placeholder="mailto:" autocomplete="off" />
+                  </div>
+                </div>
+              </details>
+
+              <details class="admin-section">
+                <summary>About</summary>
+                <div class="field">
+                  <label for="c-about-title">Title</label>
+                  <input id="c-about-title" type="text" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label for="c-about-intro">Intro</label>
+                  <textarea id="c-about-intro" rows="3"></textarea>
+                </div>
+
+                <div class="admin-divider"></div>
+                <h4 class="admin-subhead">What I build</h4>
+
+                <div class="field">
+                  <label for="c-about-what-title">Card title</label>
+                  <input id="c-about-what-title" type="text" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label for="c-about-what-p1">Paragraph 1</label>
+                  <textarea id="c-about-what-p1" rows="2"></textarea>
+                </div>
+                <div class="field">
+                  <label for="c-about-what-p2">Paragraph 2</label>
+                  <textarea id="c-about-what-p2" rows="2"></textarea>
+                </div>
+                <div class="field">
+                  <label for="c-about-what-muted">Muted line</label>
+                  <textarea id="c-about-what-muted" rows="2"></textarea>
+                </div>
+
+                <div class="admin-divider"></div>
+                <h4 class="admin-subhead">How I work</h4>
+
+                <div class="field">
+                  <label for="c-about-work-title">Card title</label>
+                  <input id="c-about-work-title" type="text" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label>Bullets</label>
+                  <div id="c-about-work-bullets" class="admin-list-rows" aria-label="How I work bullets"></div>
+                  <button id="c-about-work-add" class="btn btn-secondary btn-sm" type="button">Add bullet</button>
+                </div>
+              </details>
+
+              <details class="admin-section">
+                <summary>Projects section</summary>
+                <div class="field">
+                  <label for="c-projects-title">Title</label>
+                  <input id="c-projects-title" type="text" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label for="c-projects-intro">Intro</label>
+                  <textarea id="c-projects-intro" rows="2"></textarea>
+                </div>
+              </details>
+
+              <details class="admin-section">
+                <summary>Skills</summary>
+                <div class="field">
+                  <label for="c-skills-title">Title</label>
+                  <input id="c-skills-title" type="text" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label for="c-skills-intro">Intro</label>
+                  <textarea id="c-skills-intro" rows="2"></textarea>
+                </div>
+
+                <div class="field">
+                  <label>Groups</label>
+                  <div id="c-skills-groups" class="admin-group-list" aria-label="Skills groups"></div>
+                  <button id="c-skills-group-add" class="btn btn-secondary btn-sm" type="button">
+                    Add group
+                  </button>
+                </div>
+              </details>
+
+              <details class="admin-section">
+                <summary>Education</summary>
+                <div class="field">
+                  <label for="c-education-title">Title</label>
+                  <input id="c-education-title" type="text" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label for="c-education-intro">Intro</label>
+                  <textarea id="c-education-intro" rows="2"></textarea>
+                </div>
+
+                <div class="field">
+                  <label>Items</label>
+                  <div id="c-education-items" class="admin-group-list" aria-label="Education items"></div>
+                  <button id="c-education-add" class="btn btn-secondary btn-sm" type="button">Add item</button>
+                </div>
+              </details>
+
+              <details class="admin-section">
+                <summary>Contact</summary>
+                <div class="field">
+                  <label for="c-contact-title">Title</label>
+                  <input id="c-contact-title" type="text" autocomplete="off" />
+                </div>
+                <div class="field">
+                  <label for="c-contact-intro">Intro</label>
+                  <textarea id="c-contact-intro" rows="2"></textarea>
+                </div>
+                <p class="muted admin-note">
+                  Contact buttons + chips are derived from Hero phone/email.
+                </p>
+              </details>
+            </form>
+          </section>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
+

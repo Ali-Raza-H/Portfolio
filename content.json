@@ -1,0 +1,116 @@
+{
+  "birthdateISO": "2008-01-23",
+  "hero": {
+    "eyebrow": "Aspiring Web Developer / Creative Technologist",
+    "title": "Building clean, fast, and memorable web experiences.",
+    "lede": "I'm Ali Raza, a student developer who blends design + code to ship polished projects.",
+    "illustration": {
+      "src": "",
+      "alt": "Ali illustrated portrait"
+    },
+    "taglines": [
+      "Learning web development.",
+      "Building cool projects.",
+      "Designing with creativity.",
+      "Eager to grow and learn."
+    ],
+    "cta": [
+      {
+        "label": "See projects",
+        "href": "#projects",
+        "variant": "primary"
+      },
+      {
+        "label": "Email me",
+        "href": "mailto:khadamalihussain@gmail.com",
+        "variant": "secondary"
+      }
+    ],
+    "quickInfo": {
+      "name": "Ali Raza",
+      "focus": "Web dev + design",
+      "school": "Sixth Form Bolton"
+    },
+    "chips": {
+      "phoneLabel": "+44 7396 883621",
+      "phoneHref": "tel:+447396883621",
+      "emailLabel": "khadamalihussain@gmail.com",
+      "emailHref": "mailto:khadamalihussain@gmail.com"
+    }
+  },
+  "sections": {
+    "about": {
+      "title": "About",
+      "intro": "I'm a passionate student currently studying at Sixth Form Bolton. I enjoy combining creativity with technology to build meaningful projects.",
+      "whatIbuild": {
+        "title": "What I build",
+        "p1": "Responsive websites, small tools, and prototypes where design clarity and solid fundamentals matter.",
+        "p2": "",
+        "muted": "I'm always improving my JavaScript and pushing into more ambitious builds."
+      },
+      "howIwork": {
+        "title": "How I work",
+        "bullets": [
+          "Design-first thinking",
+          "Mobile-first layouts",
+          "Iterate fast, polish last",
+          "Performance and readability"
+        ]
+      }
+    },
+    "projects": {
+      "title": "Projects",
+      "intro": "Websites, repos, Python programs, and tools. Filter by type and open a case study."
+    },
+    "skills": {
+      "title": "Skills",
+      "intro": "Languages, frontend, and creative tools I use to ship work.",
+      "groups": [
+        {
+          "title": "Languages",
+          "items": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Python",
+            "Java",
+            "C# (learning)"
+          ]
+        },
+        {
+          "title": "Design",
+          "items": [
+            "Figma",
+            "Photoshop",
+            "Illustrator"
+          ]
+        },
+        {
+          "title": "Video",
+          "items": [
+            "DaVinci Resolve",
+            "Premiere Pro"
+          ]
+        }
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "intro": "Current study and what I'm focusing on.",
+      "items": [
+        {
+          "school": "Sixth Form Bolton",
+          "role": "Student",
+          "bullets": [
+            "Currently studying Computer Science and related courses.",
+            "Building projects across web development, design, and video editing."
+          ]
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact",
+      "intro": "Feel free to reach out for collaborations, questions, or just to say hi."
+    }
+  }
+}
