@@ -606,6 +606,11 @@ a:hover {
   gap: 1rem;
 }
 
+#education-cards {
+  display: grid;
+  gap: 1rem;
+}
+
 .chips {
   display: flex;
   flex-wrap: wrap;
