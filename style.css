@@ -193,6 +193,17 @@
     animation: ringSpin 18s linear infinite;
     pointer-events: none;
   }
+    .hero-visual-ring2 {
+    position: absolute;
+    inset: -16px;
+    border-radius: 1px;
+    border: 1px solid rgba(124, 106, 247, 0.25);
+    transform-origin: center;
+    animation: ringSpin 18s linear infinite;
+    animation-delay: -2.25s;
+    pointer-events: none;
+  }
+
 
   .hero-tag {
     display: inline-flex; align-items: center; gap: 8px;
