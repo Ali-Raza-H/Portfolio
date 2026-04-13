@@ -1,19 +1,95 @@
 [
   {
+    "id": "ai-assistant",
+    "title": "Ai Assistant",
+    "summary": "Project synced from ai_assistant.",
+    "type": "python",
+    "year": 2026,
+    "tags": [
+      "Python"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "Scanned from C:/Users/khada/Desktop/Devs/ai_assistant"
+    }
+  },
+  {
+    "id": "apex-trading-engine",
+    "title": "Apex Trading Engine",
+    "summary": "# Documentation ## Phase 1 Operational Docs - [01-phase1-setup.md](01-phase1-setup.md) - [02-architecture.md](02-architecture.md) - [03-configuration-reference.md](03-configuration-reference.md) - [04-operations-runbook.md](04-operations-runbook.md) - [05-development-testing.md](05-development-testing.md) - [06-phase1-v2-changelog.md](06-phase1-v2-changelog.md) - [07-phase2-stage-report.md](07-phase2-stage-report.md) ## Product Spec Sources - [apex-trader-phase1-spec.docx](apex-trader-phase1-spec.docx) - [apex-trader-phase2-spec.docx](apex-trader-phase2-spec.docx) - [apex-trader-full-scope.docx](apex-trader-full-scope.docx)",
+    "type": "website",
+    "year": 2026,
+    "tags": [
+      "HTML",
+      "JSON",
+      "TypeScript",
+      "Markdown",
+      "Python",
+      "Rust"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# Documentation ## Phase 1 Operational Docs - [01-phase1-setup.md](01-phase1-setup.md) - [02-architecture.md](02-architecture.md) - [03-configuration-reference.md](03-configuration-reference.md) - [04-operations-runbook.md](04-operations-runbook.md) - [05-development-testing.md](05-development-testing.md) - [06-phase1-v2-changelog.md](06-phase1-v2-changelog.md) - [07-phase2-stage-report.md](07-phase2-stage-report.md) ## Product Spec Sources - [apex-trader-phase1-spec.docx](apex-trader-phase1-spec.docx) - [apex-trader-phase2-spec.docx](apex-trader-phase2-spec.docx) - [apex-trader-full-scope.docx](apex-trader-full-scope.docx)"
+    }
+  },
+  {
+    "id": "aria-dashboard",
+    "title": "ARIA Dashboard",
+    "summary": "# A.R.I.A.",
+    "type": "website",
+    "year": 2026,
+    "tags": [
+      "TypeScript",
+      "JavaScript",
+      "Markdown",
+      "React",
+      "CSS",
+      "JSON",
+      "HTML"
+    ],
+    "links": [
+      {
+        "label": "Live Demo",
+        "url": "http://127.0.0.1:5173>"
+      }
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# A.R.I.A."
+    }
+  },
+  {
     "id": "bwa-pc-builds",
-    "title": "BWA Website",
+    "title": "BWA PC Builds",
     "summary": "Responsive marketing site for a small PC building business selling pre-built PCs.",
     "type": "website",
     "year": 2025,
-    "tags": ["HTML", "CSS", "JavaScript"],
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "SQL",
+      "JSON",
+      "Python"
+    ],
     "links": [
-      { "label": "Live", "url": "https://n1nj4-c0d3r.github.io/BWA-Pc-Builds/index.html" }
+      {
+        "label": "Live",
+        "url": "https://n1nj4-c0d3r.github.io/BWA-Pc-Builds/index.html"
+      }
     ],
     "featured": true,
     "details": {
       "problem": "The business needed a clean site that looks trustworthy and works well on mobile.",
       "solution": "Designed and built a fast landing-style website with clear sections and calls to action.",
-      "highlights": ["Mobile-first layout", "Clear content structure", "Polished visual design"],
+      "highlights": [
+        "Mobile-first layout",
+        "Clear content structure",
+        "Polished visual design"
+      ],
       "role": "Design and development"
     },
     "media": {
@@ -24,88 +100,467 @@
     }
   },
   {
-    "id": "gadget-labs-website",
-    "title": "Gadget Labs Website",
-    "summary": "Responsive ecommerce-style site concept for a business that sells electronics.",
-    "type": "website",
-    "year": 2025,
-    "tags": ["HTML", "CSS", "JavaScript"],
-    "links": [
-      { "label": "Live", "url": "https://gadgetlabsofficial.github.io/Website/" }
-    ],
-    "featured": true,
-    "details": {
-      "problem": "Show products in a modern layout that feels like a real store experience.",
-      "solution": "Built a responsive layout with strong typography, clean sections, and a consistent UI.",
-      "highlights": ["Responsive layout", "Reusable components", "Consistent styling"],
-      "role": "Design and development"
-    },
-    
-    "media": {
-      "thumbnail":"assets/projects/Gadget Labs/img1.png",
-      "gallery": []
-    }
-  },
-
-  {
-    "id": "trading-algo",
-    "title": "Trading Algo",
-    "summary": "MetaTrader 5 (MT5) demo/paper trading bot project with docs, config examples, scripts, and tests.",
+    "id": "email-serviece",
+    "title": "Email Serviece",
+    "summary": "# MailSieve MailSieve is a **local-first** email sync + triage tool for a Linux home server: - Connects to **Gmail (Gmail API OAuth2)** and **Microsoft 365 (Graph OAuth2)**, with optional **IMAP** fallback.",
     "type": "python",
     "year": 2026,
-    "tags": ["Python", "MT5", "YAML"],
-    "links": [{ "label": "Repo", "url": "https://github.com/Ali-Raza-H/Trading_Algo" }],
-    "featured": true,
-    "details": {
-      "problem": "Run a configurable demo/paper trading bot for MT5 with a clear dev workflow and documentation.",
-      "solution": "Organized a Python codebase with config templates, environment checks, and a simple CLI entry to run the bot.",
-      "highlights": ["Config templates and examples", "Doctor script for environment checks", "Demo/paper trading focus"],
-      "role": "Solo project"
-    },
-    "media": {
-      "gallery": []
-    }
-  },
-  {
-    "id": "health-hub",
-    "title": "Health Hub",
-    "summary": "Offline-first personal health tracker built with Kotlin + Jetpack Compose (Material 3).",
-    "type": "app",
-    "tags": ["Android", "Kotlin", "Jetpack Compose"],
-    "links": [],
-    "featured": true,
-    "details": {
-      "problem": "Track gym, diet, and progress in one place, even when offline.",
-      "solution": "Built an offline-first Android app with multiple flows and a clean, modern UI using Compose.",
-      "highlights": [
-        "Today hub (daily summary + quick actions)",
-        "Gym (weekly plan + workout session logging)",
-        "Diet (meal logging + macros + water)",
-        "Progress (weight trend + charts)",
-        "Settings (profile/goals/targets, reminders, export/import)"
-      ],
-      "role": "Solo project"
-    },
-    "media": {
-      "gallery": []
-    }
-  },
-  {
-    "id": "offline-voice-assistant",
-    "title": "Offline Voice Assistant",
-    "summary": "Offline voice assistant using speech recognition, text-to-speech, and a local LLM (GPT4All).",
-    "type": "python",
-    "tags": ["Python", "Speech", "GPT4All"],
-    "links": [],
+    "tags": [
+      "Python",
+      "YAML",
+      "Markdown",
+      "JSON"
+    ],
+    "links": [
+      {
+        "label": "Live Demo",
+        "url": "http://127.0.0.1:8080"
+      }
+    ],
     "featured": false,
     "details": {
-      "problem": "Hands-free interaction without relying on a cloud-only assistant.",
-      "solution": "Built a local voice loop that listens, transcribes, generates responses with a local model, and speaks back.",
-      "highlights": ["Speech-to-text via microphone", "Text-to-speech responses", "Local LLM generation (GPT4All)"],
-      "role": "Solo project"
-    },
-    "media": {
-      "gallery": []
+      "role": "Solo project",
+      "solution": "# MailSieve MailSieve is a **local-first** email sync + triage tool for a Linux home server: - Connects to **Gmail (Gmail API OAuth2)** and **Microsoft 365 (Graph OAuth2)**, with optional **IMAP** fallback."
+    }
+  },
+  {
+    "id": "faceless-channel-finished",
+    "title": "Faceless Channel Finished",
+    "summary": "# Faceless Channel Pipeline This pipeline generates and publishes faceless short-form videos end-to-end.",
+    "type": "python",
+    "year": 2026,
+    "tags": [
+      "Python",
+      "YAML",
+      "Markdown",
+      "JSON"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# Faceless Channel Pipeline This pipeline generates and publishes faceless short-form videos end-to-end."
+    }
+  },
+  {
+    "id": "finance",
+    "title": "Finance",
+    "summary": "# Finance Tracker Monorepo: - `apps/api`: FastAPI + Postgres (Alembic migrations) - `apps/web`: Next.js web UI ## Quickstart (Windows) Prereqs: - Docker Desktop (for Postgres) - Python 3.11+ (with the `py` launcher) - Node.js LTS (includes `npm`) Run: ```powershell cd path\\to\\Finance .\\run-dev.bat ``` URLs: - Web: `http://localhost:3000` - API: `http://localhost:8000` ## Auth Modes ### Local auth (no Supabase required) This is the default for local dev.",
+    "type": "website",
+    "year": 2026,
+    "tags": [
+      "YAML",
+      "JSON",
+      "Markdown"
+    ],
+    "links": [
+      {
+        "label": "Live Demo",
+        "url": "http://localhost:3000"
+      }
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# Finance Tracker Monorepo: - `apps/api`: FastAPI + Postgres (Alembic migrations) - `apps/web`: Next.js web UI ## Quickstart (Windows) Prereqs: - Docker Desktop (for Postgres) - Python 3.11+ (with the `py` launcher) - Node.js LTS (includes `npm`) Run: ```powershell cd path\\to\\Finance .\\run-dev.bat ``` URLs: - Web: `http://localhost:3000` - API: `http://localhost:8000` ## Auth Modes ### Local auth (no Supabase required) This is the default for local dev."
+    }
+  },
+  {
+    "id": "fotnite",
+    "title": "Fotnite",
+    "summary": "# LWJGL Voxel World Prototype (Java 21) ## Run - Install a **JDK 21** and ensure `java` is on PATH (or set `JAVA_HOME`).",
+    "type": "app",
+    "year": 2026,
+    "tags": [
+      "Markdown"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# LWJGL Voxel World Prototype (Java 21) ## Run - Install a **JDK 21** and ensure `java` is on PATH (or set `JAVA_HOME`)."
+    }
+  },
+  {
+    "id": "gadget-labs",
+    "title": "Gadget Labs",
+    "summary": "Project synced from Gadget Labs.",
+    "type": "website",
+    "year": 2026,
+    "tags": [
+      "CSS",
+      "HTML",
+      "JavaScript"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "Scanned from C:/Users/khada/Desktop/Devs/Gadget Labs"
+    }
+  },
+  {
+    "id": "gui-builder",
+    "title": "GUI Builder",
+    "summary": "Project synced from GUI Builder.",
+    "type": "website",
+    "year": 2026,
+    "tags": [
+      "JavaScript",
+      "CSS",
+      "HTML"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "Scanned from C:/Users/khada/Desktop/Devs/GUI Builder"
+    }
+  },
+  {
+    "id": "hackingprojects",
+    "title": "HackingProjects",
+    "summary": "Project synced from HackingProjects.",
+    "type": "website",
+    "year": 2026,
+    "tags": [
+      "HTML"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "Scanned from C:/Users/khada/Desktop/Devs/HackingProjects"
+    }
+  },
+  {
+    "id": "health-center-android",
+    "title": "Health Center Android",
+    "summary": "# HealthHub Android HealthHub is a Kotlin + Jetpack Compose Android app for fitness, diet, gym tracking, progress analytics, and RPG-style progression.",
+    "type": "app",
+    "year": 2026,
+    "tags": [
+      "Markdown"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# HealthHub Android HealthHub is a Kotlin + Jetpack Compose Android app for fitness, diet, gym tracking, progress analytics, and RPG-style progression."
+    }
+  },
+  {
+    "id": "health-tracker-app",
+    "title": "Health Tracker App",
+    "summary": "Project synced from Health Tracker App.",
+    "type": "python",
+    "year": 2026,
+    "tags": [
+      "Python"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "Scanned from C:/Users/khada/Desktop/Devs/Health Tracker App"
+    }
+  },
+  {
+    "id": "health-tracker-app-android",
+    "title": "Health Tracker App Android",
+    "summary": "# Health Hub Offline-first personal health tracker built with Kotlin + Jetpack Compose (Material 3).",
+    "type": "app",
+    "year": 2026,
+    "tags": [
+      "Markdown"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# Health Hub Offline-first personal health tracker built with Kotlin + Jetpack Compose (Material 3)."
+    }
+  },
+  {
+    "id": "health-tracker-web-app",
+    "title": "Health Tracker Web App",
+    "summary": "# HealthHub Offline-first health and fitness app built with Expo + React Native + SQLite.",
+    "type": "website",
+    "year": 2026,
+    "tags": [
+      "Markdown",
+      "React",
+      "TypeScript",
+      "JSON",
+      "JavaScript"
+    ],
+    "links": [
+      {
+        "label": "Live Demo",
+        "url": "http://localhost:19006"
+      }
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# HealthHub Offline-first health and fitness app built with Expo + React Native + SQLite."
+    }
+  },
+  {
+    "id": "humanizer",
+    "title": "Humanizer",
+    "summary": "# Humanizer (Python / Flask) - legacy This folder contains the legacy Flask API + static UI that \"humanizes\" text by swapping a small portion of words with safer synonyms (WordNet) and doing light spacing cleanup.",
+    "type": "website",
+    "year": 2026,
+    "tags": [
+      "CSS",
+      "HTML",
+      "Python",
+      "Markdown",
+      "JavaScript",
+      "C#"
+    ],
+    "links": [
+      {
+        "label": "Live Demo",
+        "url": "http://127.0.0.1:5000/"
+      }
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# Humanizer (Python / Flask) - legacy This folder contains the legacy Flask API + static UI that \"humanizes\" text by swapping a small portion of words with safer synonyms (WordNet) and doing light spacing cleanup."
+    }
+  },
+  {
+    "id": "image-to-vector-dropped",
+    "title": "Image To Vector Dropped",
+    "summary": "Project synced from Image to Vector - Dropped.",
+    "type": "python",
+    "year": 2026,
+    "tags": [
+      "Python"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "Scanned from C:/Users/khada/Desktop/Devs/Image to Vector - Dropped"
+    }
+  },
+  {
+    "id": "linux-dashboard",
+    "title": "Linux Dashboard",
+    "summary": "# Homelab Control Dashboard (v1) A lightweight, self-hosted web dashboard for browsing projects in your homelab \"devs root\" and running **safe, predefined actions** (no arbitrary command execution).",
+    "type": "website",
+    "year": 2026,
+    "tags": [
+      "Markdown",
+      "CSS",
+      "JavaScript",
+      "HTML",
+      "Python"
+    ],
+    "links": [
+      {
+        "label": "Live Demo",
+        "url": "http://localhost:8080/"
+      }
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# Homelab Control Dashboard (v1) A lightweight, self-hosted web dashboard for browsing projects in your homelab \"devs root\" and running **safe, predefined actions** (no arbitrary command execution)."
+    }
+  },
+  {
+    "id": "media-automator",
+    "title": "Media Automator",
+    "summary": "# Media Automator (FastAPI + Built-in Static UI) Self-hosted personal media server for a small household, with: - FastAPI backend (`backend/`) - Built-in static UI (`frontend/static/`) served by FastAPI - SQLite, JWT auth, account-synced watchlist/history/progress - Metadata-only catalog import (movies/TV/anime) ## Prerequisites (Windows PowerShell) 1.",
+    "type": "python",
+    "year": 2026,
+    "tags": [
+      "Python",
+      "YAML",
+      "Markdown"
+    ],
+    "links": [
+      {
+        "label": "Live Demo",
+        "url": "https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/"
+      }
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# Media Automator (FastAPI + Built-in Static UI) Self-hosted personal media server for a small household, with: - FastAPI backend (`backend/`) - Built-in static UI (`frontend/static/`) served by FastAPI - SQLite, JWT auth, account-synced watchlist/history/progress - Metadata-only catalog import (movies/TV/anime) ## Prerequisites (Windows PowerShell) 1."
+    }
+  },
+  {
+    "id": "programacion",
+    "title": "Programacion",
+    "summary": "Project synced from Programacion.",
+    "type": "website",
+    "year": 2026,
+    "tags": [
+      "JavaScript",
+      "HTML",
+      "Python"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "Scanned from C:/Users/khada/Desktop/Devs/Programacion"
+    }
+  },
+  {
+    "id": "protofolio-website",
+    "title": "Protofolio Website",
+    "summary": "Project synced from Protofolio Website.",
+    "type": "website",
+    "year": 2026,
+    "tags": [
+      "CSS",
+      "HTML",
+      "JavaScript",
+      "JSON"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "Scanned from C:/Users/khada/Desktop/Devs/Protofolio Website"
+    }
+  },
+  {
+    "id": "random",
+    "title": "Random",
+    "summary": "Project synced from Random.",
+    "type": "other",
+    "year": 2026,
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "Scanned from C:/Users/khada/Desktop/Devs/Random"
+    }
+  },
+  {
+    "id": "slm-visual-model",
+    "title": "SLM Visual Model",
+    "summary": "# Tiny Decoder-Only Transformer (SLM) + JARVIS HUD Offline educational project demonstrating the internals of a tiny **decoder-only Transformer** (untrained) with a **JARVIS-style Qt/QML HUD**.",
+    "type": "python",
+    "year": 2026,
+    "tags": [
+      "Python",
+      "Markdown"
+    ],
+    "links": [
+      {
+        "label": "Live Demo",
+        "url": "https://pytorch.org/get-started/locally/"
+      }
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# Tiny Decoder-Only Transformer (SLM) + JARVIS HUD Offline educational project demonstrating the internals of a tiny **decoder-only Transformer** (untrained) with a **JARVIS-style Qt/QML HUD**."
+    }
+  },
+  {
+    "id": "sprout-copy",
+    "title": "Sprout Copy",
+    "summary": "# Sprout Copy A complete, local-first web app inspired by fast-apply job tools: - Profile autofill center (single profile used for every application) - CV file upload (PDF/DOC/DOCX/TXT) - SMTP automation settings for outbound applications - Job feed with search/filter/save - One-click quick apply flow that sends real emails (CV + generated cover letter) - Visual pipeline board (drag cards across stages) - Funnel analytics and weekly activity chart - CSV export of applications ## Stack - Node.js HTTP server + `nodemailer` - Vanilla HTML/CSS/JavaScript frontend - JSON file persistence (`data/db.json`) ## Run 1.",
+    "type": "website",
+    "year": 2026,
+    "tags": [
+      "JSON",
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "Markdown"
+    ],
+    "links": [
+      {
+        "label": "Live Demo",
+        "url": "http://localhost:3000"
+      }
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# Sprout Copy A complete, local-first web app inspired by fast-apply job tools: - Profile autofill center (single profile used for every application) - CV file upload (PDF/DOC/DOCX/TXT) - SMTP automation settings for outbound applications - Job feed with search/filter/save - One-click quick apply flow that sends real emails (CV + generated cover letter) - Visual pipeline board (drag cards across stages) - Funnel analytics and weekly activity chart - CSV export of applications ## Stack - Node.js HTTP server + `nodemailer` - Vanilla HTML/CSS/JavaScript frontend - JSON file persistence (`data/db.json`) ## Run 1."
+    }
+  },
+  {
+    "id": "testing",
+    "title": "Testing",
+    "summary": "Project synced from Testing.",
+    "type": "python",
+    "year": 2026,
+    "tags": [
+      "Python"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "Scanned from C:/Users/khada/Desktop/Devs/Testing"
+    }
+  },
+  {
+    "id": "trading",
+    "title": "Trading",
+    "summary": "# Trading Algo This repository contains a MetaTrader 5 (MT5) **demo/paper** trading bot.",
+    "type": "repo",
+    "year": 2026,
+    "tags": [
+      "Markdown"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# Trading Algo This repository contains a MetaTrader 5 (MT5) **demo/paper** trading bot."
+    }
+  },
+  {
+    "id": "trading-algo-working",
+    "title": "Trading Algo Working",
+    "summary": "# Paper Trading Bot (MT5 + IBKR, Textual TUI) Production-style **demo/paper** trading bot with: - MT5 connectivity (official `MetaTrader5` package) + auto-reconnect - IBKR connectivity via `ib_insync` (paper trading) - Dynamic symbol discovery + canonical mapping (suffix variants supported) - Multi-asset ranking → correlation-diversified **top 5** - Strategy registry + manual or ADX regime selection - Safe execution with **idempotency**, retries, and risk controls - Full persistence to SQLite (decisions/trades/errors/settings/heartbeats) - Telegram notifications to **two chat IDs** (optional) - Textual TUI: Dashboard, Trades, Decisions, Settings, Resources (CPU/RAM/Disk/Net/Temps) ## Important: MT5 on Linux The official `MetaTrader5` Python package is **Windows-native**.",
+    "type": "repo",
+    "year": 2026,
+    "tags": [
+      "Markdown"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# Paper Trading Bot (MT5 + IBKR, Textual TUI) Production-style **demo/paper** trading bot with: - MT5 connectivity (official `MetaTrader5` package) + auto-reconnect - IBKR connectivity via `ib_insync` (paper trading) - Dynamic symbol discovery + canonical mapping (suffix variants supported) - Multi-asset ranking → correlation-diversified **top 5** - Strategy registry + manual or ADX regime selection - Safe execution with **idempotency**, retries, and risk controls - Full persistence to SQLite (decisions/trades/errors/settings/heartbeats) - Telegram notifications to **two chat IDs** (optional) - Textual TUI: Dashboard, Trades, Decisions, Settings, Resources (CPU/RAM/Disk/Net/Temps) ## Important: MT5 on Linux The official `MetaTrader5` Python package is **Windows-native**."
+    }
+  },
+  {
+    "id": "transcription-software-finished",
+    "title": "Transcription Software Finished",
+    "summary": "# Transcriber Cross-platform, fully local transcription tool that converts **MP3** and **MP4** files into **plain text** (`.txt`) using the offline **faster-whisper** speech-to-text engine (no cloud APIs).",
+    "type": "python",
+    "year": 2026,
+    "tags": [
+      "Python",
+      "Markdown"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/<your-username>/transcriber"
+      }
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "# Transcriber Cross-platform, fully local transcription tool that converts **MP3** and **MP4** files into **plain text** (`.txt`) using the offline **faster-whisper** speech-to-text engine (no cloud APIs)."
+    }
+  },
+  {
+    "id": "zyroai-full-development-refinement",
+    "title": "ZyroAI Full Development Refinement",
+    "summary": "Project synced from ZyroAI - Full Development - Refinement.",
+    "type": "python",
+    "year": 2026,
+    "tags": [
+      "Python"
+    ],
+    "featured": false,
+    "details": {
+      "role": "Solo project",
+      "solution": "Scanned from C:/Users/khada/Desktop/Devs/ZyroAI - Full Development - Refinement"
     }
   }
 ]
