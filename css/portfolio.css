@@ -149,7 +149,7 @@
   text-transform: uppercase;
 }
 .project-summary {
-  font-size: 1.1rem;
+  font-size: 1rem;
   max-width: 44rem;
 }
 .project ul {
@@ -259,6 +259,11 @@
 .contact-socials [data-socials] a:hover {
   color: var(--coral-ink);
 }
+/*
+  Base gallery rules. The mosaic layout, column spans and row packing for
+  graphics pieces live in css/custom.css, which loads last and overrides
+  these. Kept here as a sane fallback if that file is ever removed.
+*/
 .graphics-gallery {
   display: grid;
   gap: 1.2rem;
@@ -282,6 +287,7 @@
 }
 .graphic-image img {
   height: auto;
+  max-width: 100%;
   object-fit: contain;
   position: static;
   width: 100%;

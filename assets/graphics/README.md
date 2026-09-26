@@ -22,37 +22,70 @@ until you fill them in.
   "outcome": ["What did you deliver? What worked, and what would you improve?"],
   "pieces": [
     {
+      "image": "assets/graphics/my-poster.jpg",
+      "width": 720,
+      "height": 960,
       "title": "Optional piece title",
       "category": "Poster",
-      "image": "assets/graphics/my-poster.jpg",
       "alt": "A specific description of the visible design.",
-      "description": "A paragraph about this piece's brief, audience, visual idea, design decisions, iterations, and what you learned. Replace the prompt with your own account.",
-      "size": "tall",
-      "scale": 1
+      "description": "A paragraph about this piece's brief, audience, visual idea, design decisions, iterations, and what you learned."
     }
   ]
 }
 ```
 
-Use a relative path such as `assets/graphics/my-poster.jpg`. Available sizes are
-`tall`, `wide`, and `square`.
+Use a relative path such as `assets/graphics/my-poster.jpg`.
 
-Each graphic also supports these optional image controls:
+## Setting the size of each image
+
+Every piece takes a `width` and a `height`, written as **design pixels**: the
+numbers you would use while working on a 1200px-wide canvas.
+
+- `width`: how much horizontal room the piece takes. The gallery is 12 columns
+  wide, so a `width` of `1200` is full width, `720` is about 7 columns, `480`
+  is 4. Anywhere in between works and the mosaic packs around it.
+- `height`: the piece's height. Combined with `width` it sets the frame's
+  aspect ratio, so the image is never stretched.
+
+The two numbers are used as proportions, not literal pixels, so the same values
+produce a correct layout on a phone, a tablet and a desktop. Nothing is
+hard-coded per breakpoint, and the gallery re-packs itself on resize, on
+webfont load, and as each image finishes loading.
+
+To crop on purpose, set a `height` that does not match the image's real
+proportions, and add `"fit": "cover"`:
 
 ```json
 {
-  "scale": 0.8,
-  "ratio": "4 / 5",
+  "width": 720,
+  "height": 480,
   "fit": "cover",
   "position": "center top"
 }
 ```
 
-- `scale`: from `0.25` to `3`; controls gallery width (`1` is the default size).
-  It also makes the image proportionally narrower or wider on mobile.
-- Images keep their own aspect ratio by default, so there is no cropping.
-- `ratio`: optional CSS aspect ratio to frame/crop an image, such as `1 / 1`,
-  `16 / 9`, or `3 / 4`.
-- `fit`: `cover`, `contain`, or `fill` when `ratio` is set.
-- `position`: controls the crop focus, for example `center`, `center top`, or
+- `fit`: `contain` (the default, so artwork is never cropped) or `cover` to
+  fill the frame. `fill` is also accepted but will distort.
+- `position`: crop focus for `cover`, such as `center`, `center top`, or
   `right center`.
+
+A very tall ratio is capped at `88svh` so one piece cannot run off the screen on
+a short device.
+
+### Optional extras
+
+- `scale`: a multiplier on the column count, from `0.25` to `3`. Useful for a
+  quick nudge without rewriting `width`.
+- Omit `width` and `height` entirely and the image keeps its own proportions,
+  sized from the `size` hint (`tall`, `wide`, or `square`) if present.
+
+## How the mosaic is built
+
+`js/site.js` turns each piece's `width` into a column span, measures the frame
+the browser laid out, and converts that height into a row span counted in 8px
+units. Dense flow then tucks smaller pieces into the gaps left under taller
+ones, which is what gives the gallery its mosaic look. The CSS lives in
+`css/custom.css` under the `MOSAIC GALLERY` comment and is the single source of
+truth for the frame; adjust `--mosaic-column-gap` and `--mosaic-row-unit`
+there. If you change `--mosaic-row-unit`, update `MOSAIC_ROW_UNIT` in
+`js/site.js` to match.

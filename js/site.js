@@ -168,22 +168,63 @@ function skills(data) {
     }</h2><p>${esc(copy)}</p></div></article>`
   ).join("");
 }
+// Mosaic gallery layout -------------------------------------------------
+// A piece can declare its own width/height in "design pixels": the numbers
+// you would use when designing against a 1200px-wide canvas. They are not
+// used as literal CSS pixels, so the mosaic stays fluid across devices.
+//   width  -> how many of the gallery's 12 columns the piece occupies
+//   height -> the piece's target aspect ratio (width / height), which the
+//             mosaic packer turns into a row span
+// Anything missing falls back to the piece's own image proportions.
+const MOSAIC_COLUMNS = 10;
+const MOSAIC_DESIGN_WIDTH = 1200;
+const MOSAIC_ROW_UNIT = 9; // px per implicit grid row; spans are computed in these
+const clampNumber = (value, min, max) => Math.min(Math.max(value, min), max);
+const positiveNumber = (value) => {
+  const parsed = typeof value === "string"
+    ? parseFloat(value)
+    : Number(value);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 0;
+};
+// Accepts 420, "420", "420px" and returns a design-pixel number, else 0.
+const designPixels = (value) => {
+  if (typeof value === "string" && !/^\s*[\d.]+\s*(px)?\s*$/i.test(value)) {
+    return 0;
+  }
+  return positiveNumber(value);
+};
 function graphics(data) {
   const projects = data.graphicsProjects || [];
   const imageSettings = (piece) => {
-    const scale = Number(piece.scale);
-    const safeScale = Number.isFinite(scale)
-      ? Math.min(Math.max(scale, .25), 3)
-      : 1;
-    const baseColumns = piece.size === "tall" ? 5 : piece.size === "wide" ? 7 : 4;
-    const mobileColumns = Math.min(Math.max(Math.round(12 * safeScale), 1), 12);
-    const columns = Math.min(Math.max(Math.round(baseColumns * safeScale), 1), 12);
-    const ratio = /^\d+(?:\.\d+)?\s*\/\s*\d+(?:\.\d+)?$/.test(piece.ratio || "")
+    const width = designPixels(piece.width);
+    const height = designPixels(piece.height);
+    const scale = positiveNumber(piece.scale) || 1;
+    // Width in design pixels -> column span out of 12. Without an explicit
+    // width we keep the old size/scale behaviour as a sensible default.
+    const fallbackColumns = piece.size === "tall"
+      ? 5
+      : piece.size === "wide"
+      ? 7
+      : 4;
+    const span = width
+      ? clampNumber(
+        Math.round((width / MOSAIC_DESIGN_WIDTH) * MOSAIC_COLUMNS * scale),
+        1,
+        MOSAIC_COLUMNS,
+      )
+      : clampNumber(Math.round(fallbackColumns * scale), 1, MOSAIC_COLUMNS);
+    // Explicit width+height gives an exact aspect ratio. With only a ratio we
+    // pass it through; with neither the image keeps its natural proportions.
+    const ratio = width && height
+      ? `${width} / ${height}`
+      : /^\d+(?:\.\d+)?\s*\/\s*\d+(?:\.\d+)?$/.test(piece.ratio || "")
       ? piece.ratio
       : "auto";
+    // Per-image toggle: contain by default so artwork is never cropped, and
+    // "cover" only where a piece explicitly asks for it.
     const fit = ["cover", "contain", "fill"].includes(piece.fit)
       ? piece.fit
-      : "cover";
+      : "contain";
     const positions = [
       "center", "center top", "center bottom", "left", "right", "top",
       "bottom", "left center", "right center", "left top", "right top",
@@ -194,11 +235,19 @@ function graphics(data) {
       : "center";
     return {
       className: ratio === "auto" ? "" : " image-framed",
-      style: `--image-scale: ${safeScale}; --image-columns: ${columns}; --image-columns-mobile: ${mobileColumns}; --image-ratio: ${
-        esc(ratio)
-      }; --image-fit: ${fit}; --image-position: ${esc(position)};`,
+      span,
+      // The mobile grid is 4 columns wide, not 12, so spans are re-derived:
+      // only genuinely small pieces stay two-up; everything else goes full
+      // width, which is the only sane reading of a 4-column track.
+      style: `--art-span: ${span}; --art-span-mobile: ${
+        span <= 3 ? 2 : 4
+      }; --art-ratio: ${esc(ratio)}; --art-fit: ${fit}; --art-position: ${
+        esc(position)
+      };`,
     };
   };
+
+
   const renderPiece = (piece, index) => {
     const settings = imageSettings(piece);
     const title = typeof piece.title === "string" && piece.title.trim() &&
@@ -217,7 +266,7 @@ function graphics(data) {
       : "";
     return `<article class="graphic-piece graphic-piece-${
       index % 2 === 0 ? "image-first" : "copy-first"
-    }"><figure class="graphic-piece-visual"><div class="graphic-image${
+    }" style="${settings.style}"><figure class="graphic-piece-visual"><div class="graphic-image${
       settings.className
     }"><img src="${
       esc(piece.image)
@@ -231,6 +280,9 @@ function graphics(data) {
       /^PLACEHOLDER/i.test(description) ? " is-placeholder" : ""
     }">${esc(description || "Add a paragraph explaining the brief, intended audience, visual idea, and key choices behind this piece.")}</p></div></article>`;
   };
+
+
+
   const renderProject = (project, projectIndex) => {
     const pieces = Array.isArray(project.pieces) ? project.pieces : [];
     const metadata = [project.client, project.year, project.discipline]
@@ -249,9 +301,9 @@ function graphics(data) {
         : "";
     };
     const narrative = [
-      storySection("The brief", project.brief),
       storySection("Thinking &amp; direction", project.thinking),
       storySection("Process", project.process),
+      storySection("The brief", project.brief),
       storySection("Outcome &amp; reflection", project.outcome),
     ].join("");
     const overview = typeof project.overview === "string" && project.overview.trim()
@@ -275,6 +327,95 @@ function graphics(data) {
     : '<p class="graphic-case-note">Graphic design case studies are being added.</p>';
   document.querySelectorAll("[data-graphics] .graphic-image img").forEach((img) =>
     addImageFallback(img, img.alt || "Graphic design work")
+  );
+  layoutGalleries();
+}
+
+// Masonry packing -------------------------------------------------------
+// Each piece spans --art-span columns; the other axis is a row span counted in
+// fixed 8px units, with dense flow filling the gaps left under taller pieces.
+// That is what makes the gallery read as a mosaic instead of a plain table.
+//
+// The image height comes from the declared width/height ratio, or from the
+// image's own proportions when a piece does not set one. Because the ratio is
+// unitless, the same numbers hold at any viewport width.
+//
+// Re-packed whenever the result can have changed: viewport resize, webfont
+// load, and each image as it decodes. Images are lazy-loaded, so pieces far
+// below the fold report a height of 0 until they load and are skipped for now;
+// they are packed as soon as they arrive.
+function layoutGalleries() {
+  const galleries = document.querySelectorAll(
+    "[data-graphics] .graphics-gallery",
+  );
+  if (!galleries.length) return;
+  let frame = 0;
+  const pack = () => {
+    frame = 0;
+    galleries.forEach((gallery) => {
+      const styles = getComputedStyle(gallery);
+      const gap = parseFloat(styles.rowGap) || 0;
+      if (!gallery.clientWidth) return;
+      gallery.querySelectorAll(".graphic-piece").forEach((piece) => {
+        const box = piece.querySelector(".graphic-image");
+        const copy = piece.querySelector(".graphic-piece-copy");
+        if (!box) return;
+        // Measure what the browser actually laid out rather than recomputing
+        // it here, so CSS (aspect-ratio, max-height, contain) stays the single
+        // source of truth for the image box.
+        const imageHeight = box.getBoundingClientRect().height;
+        if (!imageHeight) return;
+        // The caption is part of the piece, so it has to be included in the
+        // span or the text overflows its row. Read the content box rather
+        // than offsetHeight so the value is independent of any height the
+        // grid has already handed this piece.
+        const copyHeight = copy ? copy.getBoundingClientRect().height : 0;
+        // N rows occupy N * unit + (N - 1) * gap. Invert that for the height
+        // needed, and add a spare row so rounding never clips the caption.
+        const content = imageHeight + copyHeight;
+        const rows = Math.max(
+          1,
+          Math.ceil((content + gap) / (MOSAIC_ROW_UNIT + gap)) + 1,
+        );
+        // Only write when it actually changes, so a repack cannot oscillate.
+        if (piece.dataset.artRows !== String(rows)) {
+          piece.dataset.artRows = String(rows);
+          piece.style.setProperty("--art-rows", String(rows));
+        }
+      });
+    });
+  };
+  const schedule = () => {
+    if (frame) return;
+    frame = requestAnimationFrame(pack);
+  };
+  window.addEventListener("resize", schedule, { passive: true });
+  window.addEventListener("orientationchange", schedule, { passive: true });
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(schedule).catch(() => {});
+  }
+  document.querySelectorAll("[data-graphics] .graphic-image img").forEach(
+    (img) => {
+      if (img.complete) return;
+      img.addEventListener("load", schedule, { once: true });
+      img.addEventListener("error", schedule, { once: true });
+    },
+  );
+  schedule();
+  // Late-loading images change the measured height of pieces further down the
+  // page, which changes their row spans, which moves them. Settle by
+  // repacking for a short window after load rather than only on each event.
+  let settle = 0;
+  const settleUntil = Date.now() + 4000;
+  const tick = () => {
+    schedule();
+    if (Date.now() < settleUntil) settle = setTimeout(tick, 250);
+  };
+  settle = setTimeout(tick, 250);
+  window.addEventListener(
+    "pagehide",
+    () => clearTimeout(settle),
+    { once: true },
   );
 }
 function contact(identity) {

@@ -21,6 +21,16 @@
 
   /* Site-wide sizing */
   --page: min(1180px, calc(100% - 48px));
+
+  /*
+    Mosaic gallery
+    --mosaic-row-unit must match MOSAIC_ROW_UNIT in js/site.js, which counts
+    the implicit grid rows each piece spans. --mosaic-column-gap is the visual
+    gutter; it is expressed with clamp() so it shrinks on small screens
+    instead of eating a fixed amount of a narrow viewport.
+  */
+  --mosaic-row-unit: 8px;
+  --mosaic-column-gap: clamp(.85rem, 1.4vw, 1.25rem);
 }
 
 /* Home */
@@ -376,7 +386,7 @@
 }
 
 .graphic-case-overview {
-  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-size: clamp(0.8rem, 0.8vw, 1.2rem);
   margin: 2rem 0 0;
   max-width: 54rem;
 }
@@ -401,7 +411,7 @@
 }
 
 .graphic-story-block p {
-  font-size: .92rem;
+  font-size: clamp(.88rem, 1.15vw, .98rem);
   line-height: 1.75;
   max-width: 38rem;
 }
@@ -410,22 +420,41 @@
   margin-top: .8rem;
 }
 
+/*
+  MOSAIC GALLERY
+  ==============
+  Pieces are laid out on a 12-column grid with dense flow. Each piece spans
+  --art-span columns (set from the "width" you give it in content/site.json)
+  and --art-rows implicit rows (computed in js/site.js from its height), which
+  is what makes the gallery pack like a mosaic instead of a plain table.
+
+  Sizing is relative throughout: column spans and unitless aspect ratios hold
+  at any viewport width, so a phone, tablet and desktop all get a sane layout
+  from the same numbers.
+*/
 .graphic-case-study .graphics-gallery {
   align-items: start;
-  column-gap: 1.25rem;
+  column-gap: var(--mosaic-column-gap);
   display: grid;
-  grid-auto-flow: row;
+  grid-auto-flow: row dense;
+  grid-auto-rows: var(--mosaic-row-unit);
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  row-gap: 2rem;
+  row-gap: var(--mosaic-column-gap);
 }
 
 .graphic-case-study .graphic-piece {
+  /*
+    start, not stretch: the piece must hug its own content so the JS packer
+    can measure a stable caption height. Stretching would feed the measured
+    height back into itself on every repack.
+  */
   align-self: start;
   background: var(--paper);
   border: 1px solid var(--line);
   display: flex;
   flex-direction: column;
-  grid-column: span var(--image-columns, 6);
+  grid-column: span var(--art-span, 6);
+  grid-row: span var(--art-rows, 1);
   margin: 0;
   min-width: 0;
   overflow: hidden;
@@ -451,14 +480,15 @@
 
 .graphic-piece-visual .graphic-image {
   background: transparent;
-}
-
-.graphic-piece-visual .graphic-image.image-framed {
-  aspect-ratio: var(--image-ratio);
+  aspect-ratio: var(--art-ratio, auto);
+  /* Guard rail so a very tall authored ratio cannot run off the screen.
+     svh keeps it relative to the viewport, so it adapts per device. */
+  max-height: 88svh;
 }
 
 .graphic-piece-copy {
   flex: 1;
+  min-width: 0;
   padding: 1.15rem clamp(1rem, 2vw, 1.5rem) 1.5rem;
 }
 
@@ -470,16 +500,18 @@
 }
 
 .graphic-piece-copy h3 {
-  font: 800 clamp(1.4rem, 2.2vw, 2.15rem)/.97 var(--display);
+  font: 800 clamp(1.25rem, 2.2vw, 2.15rem)/.97 var(--display);
   letter-spacing: -.065em;
   margin: .5rem 0 .85rem;
+  overflow-wrap: break-word;
 }
 
 .graphic-piece-description {
   border-left: 2px solid var(--electric);
   color: #57544d;
-  font-size: .9rem;
+  font-size: clamp(.82rem, 1.1vw, .9rem);
   line-height: 1.72;
+  overflow-wrap: break-word;
   padding: .1rem 0 .1rem .85rem;
 }
 
@@ -487,7 +519,7 @@
   background: linear-gradient(110deg, rgb(24 201 232 / 10%), transparent 85%);
   border-left-width: 3px;
   color: var(--ink);
-  min-height: 15rem;
+  min-height: clamp(9rem, 18vw, 15rem);
   padding: .85rem .9rem;
 }
 
@@ -525,25 +557,30 @@
   }
 }
 
-@media (max-width: 980px) and (min-width: 701px) {
-  .graphic-case-study .graphics-gallery {
-    column-gap: 1rem;
-    row-gap: 1.5rem;
-  }
-
-  .graphic-case-study .graphic-piece {
-    grid-column: span 6;
+/*
+  Responsive mosaic
+  The 12-column grid and dense flow work at every width. On narrow screens a
+  fixed 4-column track becomes unusably thin, so the track count drops and
+  each piece's span is re-derived in JS (--art-span-mobile) to keep roughly
+  the same visual weight. All values are fluid: no fixed pixel heights.
+*/
+@media (max-width: 980px) {
+  :root {
+    --mosaic-column-gap: clamp(.75rem, 2vw, 1.1rem);
   }
 }
 
 @media (max-width: 700px) {
+  :root {
+    --mosaic-column-gap: clamp(.6rem, 2.5vw, .9rem);
+  }
+
   .graphic-case-study .graphics-gallery {
-    gap: 1.25rem;
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .graphic-case-study .graphic-piece {
-    grid-column: 1;
+    grid-column: span var(--art-span-mobile, 4);
   }
 
   .graphic-piece-copy {
@@ -575,24 +612,6 @@
 }
 
 @media (max-width: 700px) {
-  .graphic-case-study .graphics-gallery {
-    display: grid;
-    gap: 1.25rem;
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .graphic-case-study .graphics-gallery .graphic-piece {
-    grid-column: 1;
-  }
-
-  .graphic-piece-copy {
-    padding: .9rem 1rem 1.25rem;
-  }
-
-  .graphic-piece-description.is-placeholder {
-    min-height: 0;
-  }
-
   .graphic-case-header {
     align-items: start;
     flex-direction: column;
@@ -618,80 +637,48 @@
 
 /*
   GRAPHIC IMAGE CONTROLS
-  In content/site.json, set "scale" from 0.25 to 3 to change the artwork's
-  gallery width. Images keep their own aspect ratio by default. Add "ratio"
-  to intentionally frame/crop an image; "fit" and "position" control that crop.
+  Per piece in content/site.json, set "width" and/or "height" in design pixels
+  (the numbers you would use on a 1200px canvas). "width" becomes a column span
+  and the pair becomes an aspect ratio, so the mosaic packs automatically and
+  stays proportional at any screen size.
+
+  Optional per piece:
+    "fit":      "contain" (default, never crops) or "cover" to fill the frame
+    "position": crop focus, e.g. "center top" (only meaningful with cover)
+    "scale":    multiplier on the column span
+  Omit width/height and the image keeps its own proportions.
 */
-.graphics-gallery .graphic-piece {
-  grid-column: span var(--image-columns, 4);
-}
-
-.graphic-case-study .graphics-gallery .graphic-piece {
-  grid-column: span var(--image-columns, 6);
-}
-
-@media (max-width: 980px) and (min-width: 701px) {
-  .graphic-case-study .graphics-gallery .graphic-piece {
-    grid-column: span 6;
-  }
-}
-
-@media (max-width: 700px) {
-  .graphic-case-study .graphics-gallery .graphic-piece {
-    grid-column: 1;
-  }
-}
-
 .graphics-gallery .graphic-image {
   background: transparent;
   min-height: 0;
 }
 
+/* The frame takes its box from the declared ratio; the image then fills it
+   with the per-piece fit, so a "cover" piece crops and a "contain" piece
+   letterboxes rather than distorting. */
 .graphic-image img {
   display: block;
-  height: auto;
+  height: 100%;
   max-width: 100%;
+  object-fit: var(--art-fit, contain);
+  object-position: var(--art-position, center);
   position: static;
   width: 100%;
 }
 
-.graphic-image.image-framed {
-  aspect-ratio: var(--image-ratio);
-  background: #d0cdc5;
-  overflow: hidden;
+/* No declared ratio: let the image drive its own height. */
+.graphic-image:not([class*="image-framed"]) img {
+  height: auto;
 }
 
-.graphic-image.image-framed img {
-  height: 100%;
-  object-fit: var(--image-fit, cover);
-  object-position: var(--image-position, center);
+.graphic-image.image-framed {
+  background: #d0cdc5;
+  overflow: hidden;
 }
 
 .graphic-piece:hover .graphic-image img {
   filter: contrast(1.04);
   transform: none;
-}
-
-@media (max-width: 700px) {
-  .graphics-gallery {
-    display: grid;
-    gap: 1.2rem;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-  }
-
-  .graphics-gallery .graphic-piece {
-    grid-column: span var(--image-columns-mobile, 12);
-    margin-bottom: 0;
-    width: auto;
-  }
-
-  .graphic-case-study .graphics-gallery {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .graphic-case-study .graphics-gallery .graphic-piece {
-    grid-column: 1;
-  }
 }
 
 /* Contact details */

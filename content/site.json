@@ -29,7 +29,6 @@
     "kicker": "Teaching Myself · since 2024",
     "title": "Code. Systems. Graphics.",
     "intro": "I’m Ali Raza, a developer and graphic designer based in Bolton, UK. I recently graduated from The Sixth Form Bolton, where I studied Computer Science, Graphics and ICT, and I now focus on building independent software and creative technology projects. My work spans AI systems, full-stack web development, Linux, automation and visual design. I enjoy taking complex ideas, understanding how they work from the inside out, and turning them into useful, distinctive experiences.",
-
     "aboutTitle": "Built with intent.",
     "about": [
       "I’m most at home where technical problem-solving and visual thinking overlap. I like understanding systems from the inside out, finding the awkward parts, then designing better ways to solve them. Whether I’m building a local AI assistant, a personal operating system, a web application or a visual identity, I care about how the pieces work together rather than simply making something that works once.",
@@ -37,18 +36,28 @@
       "I’m particularly interested in building tools that give people more control over their technology. Projects such as CIEL, my local-first AI assistant, and LifeOS, my personal productivity and life-management platform, reflect that approach: understand the problem, build the system, test it in the real world, then keep improving it.",
       "I speak English and Spanish fluently, with Urdu as my native language."
     ],
-
     "facts": [
-      ["Bolton", "United Kingdom"],
-      ["Computer Science", "Graphics + ICT"],
-      ["03", "Languages spoken"]
+      [
+        "Bolton",
+        "United Kingdom"
+      ],
+      [
+        "Computer Science",
+        "Graphics + ICT"
+      ],
+      [
+        "03",
+        "Languages spoken"
+      ]
     ]
   },
+
+
   "projects": [
     {
       "title": "CIEL",
       "subtitle": "Central Intelligence & Execution Layer",
-      "status": "In beta",
+      "status": "Experimental",
       "year": "2026",
       "summary": "CIEL is a local-first AI assistant and execution layer designed to move beyond chat. It brings conversational AI together with persistent memory, browser automation, desktop control and autonomous workflows, so an assistant can understand a request and meaningfully act on it within a real computer environment.",
       "details": [
@@ -102,7 +111,12 @@
         "A custom syntax, parser and compiler pipeline.",
         "An experiment in turning creative intent into predictable output."
       ],
-      "tags": ["Python", "Regex", "python-pptx", "Design systems"],
+      "tags": [
+        "Python",
+        "Regex",
+        "python-pptx",
+        "Design systems"
+      ],
       "github": "https://github.com/Ali-Raza-H/ADML",
       "demo": ""
     },
@@ -116,13 +130,30 @@
         "Exploring boot infrastructure, image generation and portability.",
         "A hands-on way to understand the stack from firmware to operating system."
       ],
-      "tags": ["Arch Linux", "archiso", "Bash", "mkinitcpio"],
+      "tags": [
+        "Arch Linux",
+        "archiso",
+        "Bash",
+        "mkinitcpio"
+      ],
       "github": "",
       "demo": ""
     }
+
   ],
+
+
   "skills": [
-    ["Programming", ["Python", "JavaScript", "HTML", "CSS", "Bash"]],
+    [
+      "Programming",
+      [
+        "Python",
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "Bash"
+      ]
+    ],
     [
       "AI & LLM engineering",
       [
@@ -140,11 +171,23 @@
     ],
     [
       "Web development",
-      ["Flask", "FastAPI", "React", "REST APIs", "Full-stack development"]
+      [
+        "Flask",
+        "FastAPI",
+        "React",
+        "REST APIs",
+        "Full-stack development"
+      ]
     ],
     [
       "Data & memory",
-      ["SQLite", "ChromaDB", "Pandas", "Vector retrieval", "Relational data"]
+      [
+        "SQLite",
+        "ChromaDB",
+        "Pandas",
+        "Vector retrieval",
+        "Relational data"
+      ]
     ],
     [
       "Automation",
@@ -184,7 +227,11 @@
     ],
     [
       "Languages",
-      ["Urdu — native", "English — fluent", "Spanish — fluent / near-native"]
+      [
+        "Urdu — native",
+        "English — fluent",
+        "Spanish — fluent / near-native"
+      ]
     ]
   ],
   "experience": [
@@ -194,7 +241,10 @@
       "organization": "BWA-PC Builds",
       "type": "Freelance",
       "summary": "Designed and built an e-commerce website against real client requirements, from the initial structure and visual interface through to implementation and refinement.",
-      "details": ["Planned the site structure and designed the interface in Figma.", "Built and refined the website using HTML5 and CSS3."]
+      "details": [
+        "Planned the site structure and designed the interface in Figma.",
+        "Built and refined the website using HTML5 and CSS3."
+      ]
     },
     {
       "period": "Aug 2025",
@@ -202,7 +252,10 @@
       "organization": "Gadget Labs",
       "type": "Founder-led venture",
       "summary": "Founded and ran an experimental technology-focused e-commerce and dropshipping business, taking ownership across the product and its operations.",
-      "details": ["Led the website, design and brand identity.", "Managed technical infrastructure and process automation."]
+      "details": [
+        "Led the website, design and brand identity.",
+        "Managed technical infrastructure and process automation."
+      ]
     }
   ],
   "journey": [
@@ -231,88 +284,96 @@
     {
       "title": "Bliss55",
       "client": "Bliss55",
-      "discipline": "Graphic design",
-      "year": "",
-      "overview": "",
-      "brief": [],
-      "thinking": [],
-      "process": [],
-      "outcome": [],
+      "discipline": "A Level Graphic design",
+      "year": "2026",
+      "overview": "A multi-flavor brand identity and packaging system developed for the AQA ESA brief for Bliss55, a sparkling fruit drink line. The identity spans three flavor variants Cherry, Orange, and Apple Fizz combining flat vector illustration, bold logotype design, and promotional campaign assets to build a cohesive commercial identity aimed at a contemporary market.",
+      "brief": ["Design graphics for a brand of sparkling fruit drink named ‘Bliss55’."],
+      "thinking": ["Established a flexible visual system where each flavor variant retains core brand typography while adopting distinct color palettes and vector artwork motifs.", "Explored flat, high-contrast vector styles to give the brand a modern, graphic look that scales cleanly across packaging and promotional media.", "Used silhouette-driven illustrations (cherry blossom branches, palm trees, and profile vector art) to create immediate flavor recognition on shelf and in advertising."],
+      "process": ["Research & Ideation: Explored contemporary beverage design trends, focusing on minimal vector art and stylized fruit motifs to target a modern audience.", "Vector Illustration & Layout: Created custom vector assets for each flavor, balancing organic lines with geometric shapes and bold typography.", "3D Mockups: Rendered the flat graphics onto 3D drink can mockups to evaluate front-facing compositions, scale, and color hierarchy on curved surfaces.", "Campaign Extension: Extended the visual identity into promotional campaign posters for each flavor, integrating display typography and contextual graphics."],
+      "outcome": ["A complete 9-piece design suite featuring 3 distinct flavor variants with 3D can renders, raw packaging layouts, and promotional posters.", "A scalable brand system that demonstrates visual consistency across multi-product packaging and marketing collateral."],
       "pieces": [
         {
-          "image": "assets/graphics/image.jpg",
-          "title": "Bliss55 — Piece 01",
-          "category": "Poster / Identity / Digital",
+          "image": "assets/graphics/image.png",
+          "width": 409,
+          "height": 720,
+          "title": "Cherry Can ",
+          "category": "",
           "alt": "Artwork from the Bliss55 graphic design collection, piece 01.",
-          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
-          "size": "tall",
-          "scale": 2
+          "description": "Can mockup of the Bliss55 Cherry flavor packaging concept. The design features soft pink tones paired with vibrant red cherries and delicate vector cherry blossom branches, balancing organic botanical shapes with bold black logotype typography. Designed for high shelf impact, the layout uses sharp contrast and clean negative space to communicate a fresh, modern aesthetic."
         },
         {
           "image": "assets/graphics/image(1).jpg",
-          "title": "Bliss55 — Piece 02",
-          "category": "Editorial / Campaign",
+          "width": 720,
+          "height": 480,
+          "title": "Mockup Cherry Showcase",
+          "category": "",
           "alt": "Artwork from the Bliss55 graphic design collection, piece 02.",
-          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
-          "size": "wide",
-          "scale": 1
+          "description": "Flat visual presentation displaying the raw packaging artwork alongside the rendered Cherry can model. This layout highlights the spatial relationship between the background vector graphics, the floating 'CHERRY' flavor text, and the central product render, demonstrating how the packaging artwork translates from 2D vector art to a 3D product environment."
         },
         {
-          "image": "assets/graphics/image(2).jpg",
-          "title": "Bliss55 — Piece 03",
-          "category": "Experimental / Type",
+          "image": "assets/graphics/image(2).png",
+          "width": 391,
+          "height": 720,
+          "title": "Orange Can",
+          "category": "",
           "alt": "Artwork from the Bliss55 graphic design collection, piece 03.",
-          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
-          "size": "tall",
-          "scale": 1
+          "description": "3D render for the Bliss55 Orange flavor variant. Utilizing a warm, tropical palette of muted terracotta, deep green, and soft coral, the design features a stylized palm tree silhouette paired with a geometric orange slice motif. The bold black 'BLISS' logotype and coral '55' branding maintain visual continuity across the product line."
         },
         {
           "image": "assets/graphics/image(3).jpg",
-          "title": "Bliss55 — Piece 04",
-          "category": "Experimental / Type",
+          "width": 720,
+          "height": 480,
+          "title": "Mockup Orange Showcase",
+          "category": "",
           "alt": "Artwork from the Bliss55 graphic design collection, piece 04.",
-          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
-          "size": "wide"
+          "description": "Display layout for the Orange flavor variant, showing the rendered can centered against its underlying graphic elements. The composition emphasizes the curved wave lines, warm sun backdrop, and arched 'ORANGE' flavor typography, illustrating how individual graphic components build the variant's visual identity."
         },
         {
-          "image": "assets/graphics/image(4).jpg",
-          "title": "Bliss55 — Piece 05",
-          "category": "Experimental / Type",
+          "image": "assets/graphics/image(4).png",
+          "width": 404,
+          "height": 720,
+          "title": "Apple Can",
+          "category": "",
           "alt": "Artwork from the Bliss55 graphic design collection, piece 05.",
-          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
-          "size": "tall"
+          "description": "Can packaging render for the Bliss55 Apple Fizz variant. Featuring a crisp, cream-colored base with floating bubble vectors, the design incorporates a stylized vector profile integrated into a green apple silhouette. The lime green '55' branding and bold 'Apple Fizz' typography create a vibrant, refreshing aesthetic tailored to the flavor profile."
         },
         {
           "image": "assets/graphics/image(5).jpg",
-          "title": "Bliss55 — Piece 06",
-          "category": "Experimental / Type",
+          "width": 720,
+          "height": 480,
+          "title": "Mockup Apple Showcase",
+          "category": "",
           "alt": "Artwork from the Bliss55 graphic design collection, piece 06.",
-          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
-          "size": "wide"
+          "description": "Flat presentation of the Apple Fizz design concept, positioning the 3D can render beside a large-scale vector illustration of the female profile motif. This piece showcases the flat graphic style and color palette used across the variant, highlighting the interaction between product mockups and supporting brand artwork."
         },
         {
           "image": "assets/graphics/image(6).jpg",
-          "title": "Bliss55 — Piece 07",
-          "category": "Experimental / Type",
+          "width": 509,
+          "height": 720,
+          "title": "Bliss55 | Apple Poster",
+          "category": "",
           "alt": "Artwork from the Bliss55 graphic design collection, piece 07.",
-          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
-          "size": "tall"
+          "description": "Promotional campaign poster for Bliss55 Apple Fizz under the title Summer Fizz. The composition frames the central product render with dynamic, rising bubble vectors, an enlarged green apple illustration, and bold display typography along the bottom margin. The design uses vertical hierarchy and high-contrast vector elements to create an energetic advertising asset."
         },
         {
           "image": "assets/graphics/image(7).jpg",
-          "title": "Bliss55 — Piece 08",
-          "category": "Experimental / Type",
+          "width": 509,
+          "height": 720,
+          "title": "Bliss55 | Cherry Poster",
+          "category": "",
           "alt": "Artwork from the Bliss55 graphic design collection, piece 08.",
-          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
-          "size": "tall"
+          "description": "Promotional campaign poster for the Cherry flavor, featuring the headline 'BLISSFULL SPRING' arched over the product render. The artwork uses layered cherry blossom branches and falling petal vectors framed within a soft circular backdrop, creating a focused, seasonal poster design that reinforces the brand's botanical themes."
         },
         {
           "image": "assets/graphics/image(8).jpg",
-          "title": "Bliss55 — Piece 09",
-          "category": "Experimental / Type",
+          "width": 509,
+          "height": 720,
+          "fit": "cover",
+          "position": "center top",
+          "title": "Bliss55 | Orange Poster",
+          "category": "",
           "alt": "Artwork from the Bliss55 graphic design collection, piece 09.",
-          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
-          "size": "tall"
+          "description": "Promotional campaign poster for the Orange flavor variant titled 'Tangy Fizz.' The layout pairs the 3D can render with a bold, stylized cocktail glass vector filled with citrus imagery and a straw graphic, set against warm layered background shapes. The poster demonstrates how the brand identity extends into vibrant commercial marketing assets."
         }
       ]
     }
