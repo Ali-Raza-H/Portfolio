@@ -1,0 +1,211 @@
+/* ==========================================================================
+   hero.css — home page hero
+   ========================================================================== */
+
+.hero {
+  background-color: var(--background);
+  border-bottom: 1px solid var(--separator);
+  display: flex;
+  min-height: calc(100vh - var(--nav-height));
+  overflow: hidden;
+  padding-block: var(--space-8);
+  position: relative;
+}
+
+.hero-content {
+  align-items: center;
+  display: flex;
+  gap: var(--space-9);
+  margin-block: auto;
+  position: relative;
+}
+
+.hero-copy {
+  animation: hero-copy-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+  width: 60%;
+}
+
+.hero-image-wrap {
+  animation: hero-image-in 0.8s ease 0.3s both;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 40%;
+}
+
+.eyebrow {
+  align-items: center;
+  color: var(--accent);
+  display: inline-flex;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  font-weight: 500;
+  gap: var(--space-3);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  background-color: var(--accent);
+  content: "";
+  flex: none;
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+.hero h1 {
+  font-size: var(--fs-display);
+  font-weight: 900;
+  letter-spacing: var(--ls-display);
+  line-height: var(--lh-display);
+  margin: var(--space-5) 0;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.hero-specialties {
+  border-left: 2px solid var(--accent);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono);
+  max-width: 30rem;
+  padding-left: var(--space-4);
+}
+
+.hero-intro {
+  color: var(--text-secondary);
+  font-size: var(--fs-lead);
+  margin-top: var(--space-5);
+  max-width: 32rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-7);
+}
+
+.hero-image {
+  border: 1px solid var(--accent);
+  height: 21.25rem;
+  object-fit: cover;
+  object-position: center top;
+  position: relative;
+  width: 21.25rem;
+}
+
+/* Offsetting hairline frame — sharp, technical, no shadow needed. */
+.hero-image-wrap::before {
+  border: 1px solid var(--accent-deep);
+  content: "";
+  inset: 20px -20px -20px 20px;
+  pointer-events: none;
+  position: absolute;
+}
+
+@keyframes hero-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-image-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* The hero carries the site's social links (see socials.css). */
+.hero-socials {
+  border-top: 1px solid var(--separator-soft);
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+}
+
+.hero-socials .social-list {
+  justify-content: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .hero-content {
+    gap: var(--space-7);
+  }
+
+  .hero-copy {
+    width: 58%;
+  }
+
+  .hero-image-wrap {
+    width: 42%;
+  }
+
+  .hero-image {
+    height: 17.5rem;
+    width: 17.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-block: var(--space-9);
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 0;
+    text-align: center;
+  }
+
+  .hero-copy,
+  .hero-image-wrap {
+    width: 100%;
+  }
+
+  .hero-image-wrap {
+    margin-bottom: var(--space-7);
+    order: -1;
+  }
+
+  .hero-image {
+    height: 13.75rem;
+    width: 13.75rem;
+  }
+
+  .hero-image-wrap::before {
+    inset: 12px -12px -12px 12px;
+  }
+
+  .hero-specialties,
+  .hero-intro {
+    margin-inline: auto;
+  }
+
+  .hero-specialties {
+    border-left: 0;
+    border-top: 2px solid var(--accent);
+    display: inline-block;
+    padding: var(--space-3) 0 0;
+  }
+
+  .hero-actions,
+  .hero-socials .social-list {
+    justify-content: center;
+  }
+
+  .hero-socials {
+    margin-top: var(--space-6);
+  }
+}

@@ -1,0 +1,47 @@
+/* ==========================================================================
+   skills.css — grouped technical skills
+   ========================================================================== */
+
+.skill-groups {
+  counter-reset: skill-group;
+  display: grid;
+  gap: var(--space-7);
+}
+
+.skill-group {
+  counter-increment: skill-group;
+}
+
+.skill-group h3 {
+  align-items: baseline;
+  border-bottom: 1px solid var(--separator);
+  color: var(--text-primary);
+  display: flex;
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 700;
+  gap: var(--space-4);
+  letter-spacing: 0.16em;
+  padding-bottom: var(--space-3);
+  text-transform: uppercase;
+}
+
+/* Generated index, matching the project list numbering. */
+.skill-group h3::before {
+  color: var(--text-tertiary);
+  content: counter(skill-group, decimal-leading-zero);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.skill-group .tag-list {
+  padding-top: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .skill-groups {
+    gap: var(--space-6);
+  }
+}

@@ -1,0 +1,242 @@
+/* ==========================================================================
+   nav.css — fixed primary navigation
+   ========================================================================== */
+
+.site-nav {
+  background-color: color-mix(in srgb, var(--background) 65%, transparent);
+  border-bottom: 1px solid transparent;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  height: var(--nav-height);
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  z-index: 30;
+}
+
+.site-nav.scrolled {
+  background-color: color-mix(in srgb, var(--surface) 94%, transparent);
+  border-bottom-color: var(--separator-strong);
+}
+
+.nav-inner {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  margin-inline: auto;
+  width: min(100% - (var(--gutter) * 2), var(--width-page));
+}
+
+/* --- Brand ---------------------------------------------------------------- */
+
+.brand {
+  align-items: center;
+  display: inline-flex;
+  gap: var(--space-3);
+}
+
+.brand-mark {
+  background-color: var(--accent);
+  color: var(--background);
+  display: grid;
+  flex: none;
+  height: 1.625rem;
+  place-items: center;
+  transition: background-color 0.2s ease;
+  width: 1.625rem;
+}
+
+.brand-mark svg {
+  height: 1.125rem;
+  width: 1.125rem;
+}
+
+.brand-name {
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.brand:hover .brand-mark {
+  background-color: var(--accent-hover);
+}
+
+.brand:hover .brand-name {
+  color: var(--accent);
+}
+
+/* --- Links ---------------------------------------------------------------- */
+
+.nav-links {
+  align-items: center;
+  display: flex;
+  gap: var(--space-6);
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  font-family: var(--font-ui);
+  font-size: var(--fs-ui);
+  font-weight: 700;
+  letter-spacing: var(--ls-ui);
+  padding-block: 0.35rem;
+  position: relative;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+/* Underline sweeps in from the left. */
+.nav-links a::after {
+  background-color: var(--accent);
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-links a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.nav-links a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* --- Hamburger ------------------------------------------------------------ */
+
+.hamburger {
+  display: none;
+  height: 1.5rem;
+  padding: 0;
+  position: relative;
+  width: 1.875rem;
+}
+
+.hamburger span {
+  background-color: var(--text-primary);
+  display: block;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transition: transform 0.2s ease, opacity 0.2s ease,
+    background-color 0.2s ease;
+  width: 100%;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0.25rem;
+}
+
+.hamburger span:nth-child(2) {
+  top: 0.7rem;
+  width: 70%;
+}
+
+.hamburger span:nth-child(3) {
+  top: 1.15rem;
+}
+
+.hamburger:hover span {
+  background-color: var(--accent);
+}
+
+/* --- Scroll progress ------------------------------------------------------ */
+
+.nav-progress {
+  background-color: var(--accent);
+  bottom: -1px;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    align-items: stretch;
+    background-color: var(--surface-raised);
+    border-bottom: 1px solid var(--separator-strong);
+    flex-direction: column;
+    gap: 0;
+    left: 0;
+    opacity: 0;
+    padding: 0.5rem var(--gutter) var(--space-5);
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    visibility: hidden;
+  }
+
+  .nav-links a {
+    border-bottom: 1px solid var(--separator);
+    font-size: 0.9375rem;
+    padding: 0.9rem 0 0.9rem var(--space-5);
+  }
+
+  /* Padding on the left is reserved for the active/hover marker. */
+  .nav-links a::after {
+    height: 100%;
+    top: 0;
+    transform: scaleX(1);
+    transform-origin: left;
+    width: 3px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .nav-links a:hover::after,
+  .nav-links a[aria-current="page"]::after {
+    opacity: 1;
+  }
+
+  .nav-links li:last-child a,
+  .nav-links a:last-child {
+    border-bottom: 0;
+  }
+
+  .site-nav.nav-open .nav-links {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .site-nav.nav-open .hamburger span:nth-child(1) {
+    transform: translateY(0.45rem) rotate(45deg);
+  }
+
+  .site-nav.nav-open .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .site-nav.nav-open .hamburger span:nth-child(3) {
+    transform: translateY(-0.45rem) rotate(-45deg);
+  }
+}

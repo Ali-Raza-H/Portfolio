@@ -1,0 +1,46 @@
+/* ==========================================================================
+   socials.css — social links, shared by the hero and the footer
+   ========================================================================== */
+
+.social-list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  justify-content: center;
+}
+
+.social-link {
+  color: var(--text-secondary);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icon {
+  display: inline-flex;
+}
+
+.social-icon svg {
+  height: 1.75rem;
+  width: 1.75rem;
+}
+
+.social-icon:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.email-link {
+  font-family: var(--font-mono);
+  font-size: var(--fs-body-sm);
+  letter-spacing: var(--ls-mono);
+}
+
+.email-link:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .social-list {
+    gap: var(--space-5);
+  }
+}

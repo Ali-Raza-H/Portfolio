@@ -1,0 +1,69 @@
+/* ==========================================================================
+   footer.css — site footer, shared by every page
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--background-deep);
+  border-top: 1px solid var(--separator);
+  padding-block: var(--space-9);
+  position: relative;
+  text-align: center;
+}
+
+/* Hairline accent segment centred on the top edge. */
+.site-footer::before {
+  background-color: var(--accent);
+  content: "";
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  top: -1px;
+  transform: translateX(-50%);
+  width: 4rem;
+}
+
+.footer-inner {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: var(--ls-heading);
+  text-transform: uppercase;
+}
+
+.footer-title {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.16em;
+  margin-top: var(--space-3);
+  text-transform: uppercase;
+}
+
+.footer-socials {
+  margin-top: var(--space-5);
+}
+
+.footer-socials .social-icon svg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.footer-rule {
+  border-top: 1px solid var(--separator);
+  margin: var(--space-6) auto;
+  max-width: 25rem;
+  width: 100%;
+}
+
+.copyright {
+  color: var(--text-tertiary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono-sm);
+  letter-spacing: var(--ls-mono);
+}

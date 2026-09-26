@@ -1,0 +1,171 @@
+/* Timeline: an intentional single line connecting the CV milestones. */
+.timeline {
+  margin-left: clamp(1rem,8vw,7rem);
+  position: relative;
+}
+.timeline::before {
+  background: var(--electric);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
+.journey-item {
+  border-top: 0!important;
+  grid-template-columns: minmax(7rem,1fr) minmax(0,4fr);
+  padding: 0 0 3.5rem 3rem!important;
+  position: relative;
+}
+.journey-item::before {
+  background: var(--ink);
+  border: 2px solid var(--electric);
+  content: "";
+  height: .75rem;
+  left: -.35rem;
+  position: absolute;
+  top: .2rem;
+  width: .75rem;
+}
+.journey-item::after {
+  border-top: 1px solid #52514b;
+  content: "";
+  left: 3rem;
+  position: absolute;
+  right: 0;
+  top: .55rem;
+}
+.journey-item time,
+.journey-item > div {
+  position: relative;
+  z-index: 1;
+}
+.journey-item time {
+  background: var(--ink);
+  padding-right: .8rem;
+  width: max-content;
+}
+.journey-item > div {
+  background: var(--ink);
+  padding-left: 1.2rem;
+}
+.journey-item h2 {
+  transition: color var(--motion-standard) ease,
+    transform var(--motion-standard) var(--motion-ease);
+}
+.journey-item:hover h2 {
+  color: var(--electric);
+  transform: translateX(.2rem);
+}
+.journey-item:hover::before {
+  background: var(--electric);
+}
+
+/* Shared reveal/hover motion tokens are defined in global.css. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--motion-reveal) var(--motion-ease)
+      var(--reveal-delay, 0ms),
+    transform var(--motion-reveal) var(--motion-ease)
+      var(--reveal-delay, 0ms);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.graphic-piece .graphic-image img {
+  transition: transform var(--motion-standard) var(--motion-ease),
+    filter var(--motion-standard) ease;
+}
+.graphic-piece:hover .graphic-image img {
+  filter: contrast(1.07);
+  transform: scale(1.035);
+}
+.project {
+  transition: background-color var(--motion-standard) ease,
+    padding-left var(--motion-standard) var(--motion-ease);
+}
+.project:hover {
+  background-color: color-mix(in srgb,var(--electric) 12%,transparent);
+  padding-left: .75rem;
+}
+.skill-row {
+  transition: background-color var(--motion-standard) ease,
+    padding-left var(--motion-standard) var(--motion-ease);
+}
+.skill-row:hover {
+  background-color: color-mix(in srgb,var(--electric) 12%,transparent);
+  padding-left: .75rem;
+}
+.button,
+.text-link,
+.nav-links a {
+  transition: color var(--motion-fast) ease,
+    background-color var(--motion-fast) ease,
+    transform var(--motion-fast) var(--motion-ease),
+    border-color var(--motion-fast) ease;
+}
+.button:hover {
+  transform: translateY(-2px);
+}
+@media (max-width:700px) {
+  .timeline {
+    margin-left: 1rem;
+  }
+  .journey-item {
+    display: block;
+    padding: 0 0 2.7rem 2rem!important;
+  }
+  .journey-item::after {
+    left: 2rem;
+    top: 1.55rem;
+  }
+  .journey-item time {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .journey-item > div {
+    padding-left: 0;
+  }
+  .project:hover,
+  .skill-row:hover {
+    padding-left: .35rem;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .graphic-piece .graphic-image img,
+  .project,
+  .skill-row,
+  .journey-item h2,
+  .button,
+  .text-link,
+  .nav-links a {
+    transition: none;
+  }
+  .graphic-piece:hover .graphic-image img,
+  .graphic-case-study .graphic-piece:hover .graphic-piece-visual img {
+    filter: none;
+    transform: none;
+  }
+  .graphic-case-study .graphic-piece:hover {
+    box-shadow: none;
+    transform: none;
+  }
+  .project:hover,
+  .skill-row:hover {
+    padding-left: 0;
+  }
+  .journey-item:hover h2 {
+    transform: none;
+  }
+  .button:hover {
+    transform: none;
+  }
+}

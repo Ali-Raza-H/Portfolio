@@ -1,0 +1,59 @@
+/* ==========================================================================
+   about.css — home page intro
+   ========================================================================== */
+
+.about-grid {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1fr 1fr;
+}
+
+.about-grid p {
+  max-width: 34rem;
+}
+
+.stats {
+  border-top: 1px solid var(--separator);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  text-align: center;
+}
+
+.stat + .stat {
+  border-left: 1px solid var(--separator);
+}
+
+.stat strong {
+  color: var(--accent);
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--fs-stat);
+  font-weight: 900;
+  letter-spacing: var(--ls-heading);
+  line-height: 1;
+}
+
+.stat span {
+  color: var(--text-secondary);
+  display: block;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  margin-top: var(--space-3);
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    gap: var(--space-5);
+    grid-template-columns: 1fr;
+  }
+
+  .stat span {
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+  }
+}

@@ -1,0 +1,320 @@
+{
+  "identity": {
+    "name": "Ali Raza",
+    "role": "Developer, systems thinker & graphic designer",
+    "location": "Bolton, UK",
+    "email": "khadamalihussain@gmail.com",
+    "phone": "07396883621",
+    "cv": "Ali_Raza_CV.pdf",
+    "portrait": "assets/aliraza.png",
+    "socials": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Ali-Raza-H/",
+        "icon": "github"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/ali-raza-hussain-noreen/",
+        "icon": "linkedin"
+      },
+      {
+        "label": "TikTok",
+        "url": "https://www.tiktok.com/@4l1r4z4",
+        "icon": "tiktok"
+      }
+    ]
+  },
+  "home": {
+    "kicker": "Teaching Myself · since 2024",
+    "title": "Code. Systems. Graphics.",
+    "intro": "I’m Ali Raza, a developer and graphic designer based in Bolton, UK. I recently graduated from The Sixth Form Bolton, where I studied Computer Science, Graphics and ICT, and I now focus on building independent software and creative technology projects. My work spans AI systems, full-stack web development, Linux, automation and visual design. I enjoy taking complex ideas, understanding how they work from the inside out, and turning them into useful, distinctive experiences.",
+
+    "aboutTitle": "Built with intent.",
+    "about": [
+      "I’m most at home where technical problem-solving and visual thinking overlap. I like understanding systems from the inside out, finding the awkward parts, then designing better ways to solve them. Whether I’m building a local AI assistant, a personal operating system, a web application or a visual identity, I care about how the pieces work together rather than simply making something that works once.",
+      "My practice is self-directed and hands-on. I’ve built and deployed projects using Python, Flask, SQLite, JavaScript, HTML and CSS, while exploring technologies including LLMs, local AI, browser automation, vector databases, Linux desktop control and text-to-speech. Alongside software, my background in graphics gives me a strong interest in visual communication, interface design and making technical products feel intentional.",
+      "I’m particularly interested in building tools that give people more control over their technology. Projects such as CIEL, my local-first AI assistant, and LifeOS, my personal productivity and life-management platform, reflect that approach: understand the problem, build the system, test it in the real world, then keep improving it.",
+      "I speak English and Spanish fluently, with Urdu as my native language."
+    ],
+
+    "facts": [
+      ["Bolton", "United Kingdom"],
+      ["Computer Science", "Graphics + ICT"],
+      ["03", "Languages spoken"]
+    ]
+  },
+  "projects": [
+    {
+      "title": "CIEL",
+      "subtitle": "Central Intelligence & Execution Layer",
+      "status": "In beta",
+      "year": "2026",
+      "summary": "CIEL is a local-first AI assistant and execution layer designed to move beyond chat. It brings conversational AI together with persistent memory, browser automation, desktop control and autonomous workflows, so an assistant can understand a request and meaningfully act on it within a real computer environment.",
+      "details": [
+        "The system combines voice input and output, Playwright browser automation, desktop control and a modular tool architecture that can connect to external services without losing the context of the user’s wider workflow.",
+        "Built around Arch Linux, CIEL explores what a practical, highly integrated personal assistant can look like when local tools, memory and user control are treated as first-class parts of the product."
+      ],
+      "tags": [
+        "Python",
+        "OpenAI API",
+        "Ollama",
+        "Kokoro",
+        "ChromaDB",
+        "SQLite",
+        "Playwright",
+        "PyAutoGUI",
+        "Arch Linux",
+        "D-Bus"
+      ],
+      "github": "https://github.com/Ali-Raza-H/AI_Assistant",
+      "demo": ""
+    },
+    {
+      "title": "LifeOS",
+      "subtitle": "Personal operating system",
+      "status": "Deployed",
+      "year": "2025",
+      "summary": "LifeOS is a full-stack personal management platform that gathers tasks, habits, goals, projects and journaling in one place. It was built around a simple question: what would a personal system feel like if it reflected how someone actually plans, thinks and changes direction?",
+      "details": [
+        "The Python and Flask backend is backed by a relational database, with features developed iteratively and restructured when the original architecture stopped serving the product.",
+        "It also exposes an API layer, allowing other applications such as CIEL to read and write useful information rather than remaining isolated tools."
+      ],
+      "tags": [
+        "Python",
+        "Flask",
+        "SQLite3",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "API design"
+      ],
+      "github": "https://github.com/Ali-Raza-H/lifeUpWebsite",
+      "demo": ""
+    },
+    {
+      "title": "ADML",
+      "subtitle": "AutoDesign Markup Language",
+      "status": "In development",
+      "year": "2026",
+      "summary": "A markup language exploring a more controllable route from AI instructions to polished visual design.",
+      "details": [
+        "A custom syntax, parser and compiler pipeline.",
+        "An experiment in turning creative intent into predictable output."
+      ],
+      "tags": ["Python", "Regex", "python-pptx", "Design systems"],
+      "github": "https://github.com/Ali-Raza-H/ADML",
+      "demo": ""
+    },
+    {
+      "title": "PCP",
+      "subtitle": "Portable Compute Protocol",
+      "status": "Research",
+      "year": "2026",
+      "summary": "An Arch-based portable computing environment designed to run primarily from RAM.",
+      "details": [
+        "Exploring boot infrastructure, image generation and portability.",
+        "A hands-on way to understand the stack from firmware to operating system."
+      ],
+      "tags": ["Arch Linux", "archiso", "Bash", "mkinitcpio"],
+      "github": "",
+      "demo": ""
+    }
+  ],
+  "skills": [
+    ["Programming", ["Python", "JavaScript", "HTML", "CSS", "Bash"]],
+    [
+      "AI & LLM engineering",
+      [
+        "OpenAI API / SDK",
+        "Ollama",
+        "OpenRouter",
+        "LangChain",
+        "Kokoro",
+        "Whisper",
+        "AI agents",
+        "Tool integration",
+        "Prompt design",
+        "Local AI"
+      ]
+    ],
+    [
+      "Web development",
+      ["Flask", "FastAPI", "React", "REST APIs", "Full-stack development"]
+    ],
+    [
+      "Data & memory",
+      ["SQLite", "ChromaDB", "Pandas", "Vector retrieval", "Relational data"]
+    ],
+    [
+      "Automation",
+      [
+        "Playwright",
+        "PyAutoGUI",
+        "ydotool",
+        "SearXNG",
+        "Cron",
+        "FFmpeg",
+        "MoviePy",
+        "yt-dlp"
+      ]
+    ],
+    [
+      "Linux & systems",
+      [
+        "Arch Linux",
+        "Hyprland",
+        "archiso",
+        "mkinitcpio",
+        "systemd",
+        "D-Bus",
+        "Desktop automation"
+      ]
+    ],
+    [
+      "Design",
+      [
+        "Figma",
+        "Photoshop",
+        "Illustrator",
+        "Premiere Pro",
+        "DaVinci Resolve",
+        "UI/UX"
+      ]
+    ],
+    [
+      "Languages",
+      ["Urdu — native", "English — fluent", "Spanish — fluent / near-native"]
+    ]
+  ],
+  "experience": [
+    {
+      "period": "May–Jun 2024",
+      "role": "Freelance Web Developer",
+      "organization": "BWA-PC Builds",
+      "type": "Freelance",
+      "summary": "Designed and built an e-commerce website against real client requirements, from the initial structure and visual interface through to implementation and refinement.",
+      "details": ["Planned the site structure and designed the interface in Figma.", "Built and refined the website using HTML5 and CSS3."]
+    },
+    {
+      "period": "Aug 2025",
+      "role": "Founder",
+      "organization": "Gadget Labs",
+      "type": "Founder-led venture",
+      "summary": "Founded and ran an experimental technology-focused e-commerce and dropshipping business, taking ownership across the product and its operations.",
+      "details": ["Led the website, design and brand identity.", "Managed technical infrastructure and process automation."]
+    }
+  ],
+  "journey": [
+    [
+      "2024",
+      "Graduated Essa Academy",
+      "Completed 8 GCSEs at grade 4 or above, including Computer Science, Graphics, Mathematics, Science, English Language and English Literature."
+    ],
+    [
+      "Sep 2024",
+      "The Sixth Form Bolton",
+      "Started A Level Computer Science, A Level Graphics and a BTEC Certificate in ICT — intentionally combining technical foundations with visual communication."
+    ],
+    [
+      "2025–26",
+      "Independent systems practice",
+      "Developed LifeOS, CIEL, ADML and PCP: a set of projects spanning full-stack applications, local AI, automation, structured design generation and Linux infrastructure."
+    ],
+    [
+      "Now",
+      "Building in public",
+      "Continuing to deepen my software engineering and graphic design practice through independent work, experimentation and client-ready projects."
+    ]
+  ],
+  "graphicsProjects": [
+    {
+      "title": "Bliss55",
+      "client": "Bliss55",
+      "discipline": "Graphic design",
+      "year": "",
+      "overview": "",
+      "brief": [],
+      "thinking": [],
+      "process": [],
+      "outcome": [],
+      "pieces": [
+        {
+          "image": "assets/graphics/image.jpg",
+          "title": "Bliss55 — Piece 01",
+          "category": "Poster / Identity / Digital",
+          "alt": "Artwork from the Bliss55 graphic design collection, piece 01.",
+          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
+          "size": "tall",
+          "scale": 2
+        },
+        {
+          "image": "assets/graphics/image(1).jpg",
+          "title": "Bliss55 — Piece 02",
+          "category": "Editorial / Campaign",
+          "alt": "Artwork from the Bliss55 graphic design collection, piece 02.",
+          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
+          "size": "wide",
+          "scale": 1
+        },
+        {
+          "image": "assets/graphics/image(2).jpg",
+          "title": "Bliss55 — Piece 03",
+          "category": "Experimental / Type",
+          "alt": "Artwork from the Bliss55 graphic design collection, piece 03.",
+          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
+          "size": "tall",
+          "scale": 1
+        },
+        {
+          "image": "assets/graphics/image(3).jpg",
+          "title": "Bliss55 — Piece 04",
+          "category": "Experimental / Type",
+          "alt": "Artwork from the Bliss55 graphic design collection, piece 04.",
+          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
+          "size": "wide"
+        },
+        {
+          "image": "assets/graphics/image(4).jpg",
+          "title": "Bliss55 — Piece 05",
+          "category": "Experimental / Type",
+          "alt": "Artwork from the Bliss55 graphic design collection, piece 05.",
+          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
+          "size": "tall"
+        },
+        {
+          "image": "assets/graphics/image(5).jpg",
+          "title": "Bliss55 — Piece 06",
+          "category": "Experimental / Type",
+          "alt": "Artwork from the Bliss55 graphic design collection, piece 06.",
+          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
+          "size": "wide"
+        },
+        {
+          "image": "assets/graphics/image(6).jpg",
+          "title": "Bliss55 — Piece 07",
+          "category": "Experimental / Type",
+          "alt": "Artwork from the Bliss55 graphic design collection, piece 07.",
+          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
+          "size": "tall"
+        },
+        {
+          "image": "assets/graphics/image(7).jpg",
+          "title": "Bliss55 — Piece 08",
+          "category": "Experimental / Type",
+          "alt": "Artwork from the Bliss55 graphic design collection, piece 08.",
+          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
+          "size": "tall"
+        },
+        {
+          "image": "assets/graphics/image(8).jpg",
+          "title": "Bliss55 — Piece 09",
+          "category": "Experimental / Type",
+          "alt": "Artwork from the Bliss55 graphic design collection, piece 09.",
+          "description": "PLACEHOLDER — Use this space for a short case study of this individual piece. Describe the brief or problem it responds to, the audience it was designed for, and the visual idea you wanted to communicate. Explain why you chose the composition, typography, colour, imagery, and materials you used, and how those choices support the message. Mention any alternatives you explored, feedback or constraints that shaped the final result, and what you learned while refining it. Replace this prompt with your own honest process and observations; avoid claiming outcomes you cannot verify.",
+          "size": "tall"
+        }
+      ]
+    }
+  ]
+}

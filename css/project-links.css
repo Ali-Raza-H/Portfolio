@@ -1,0 +1,21 @@
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+.project-links a {
+  border-bottom: 1px solid var(--ink);
+  font: .7rem var(--mono);
+  padding-bottom: .2rem;
+  text-transform: uppercase;
+}
+.project-links a:hover {
+  color: var(--coral-ink);
+}
+.project-links-empty {
+  color: var(--muted);
+  font: .67rem var(--mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,173 @@
+/* ==========================================================================
+   projects.css — full-width project entries separated by rules
+   ========================================================================== */
+
+.project-list {
+  counter-reset: project;
+  display: grid;
+  gap: var(--space-8);
+}
+
+.project-entry {
+  border-bottom: 1px solid var(--separator);
+  counter-increment: project;
+  padding-bottom: var(--space-8);
+  position: relative;
+}
+
+.project-entry:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* On hover a short accent segment lights up along the separator. */
+.project-entry::after {
+  background-color: var(--accent);
+  bottom: -1px;
+  content: "";
+  height: 1px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.25s ease;
+  width: 4rem;
+}
+
+.project-entry:hover::after {
+  opacity: 1;
+}
+
+.project-heading {
+  align-items: flex-start;
+  display: flex;
+  gap: var(--space-5);
+  justify-content: space-between;
+}
+
+.project-heading h3 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.25;
+  transition: color 0.25s ease;
+}
+
+.project-entry:hover .project-heading h3,
+.project-entry:hover .project-heading h3::before {
+  color: var(--accent);
+}
+
+/* Technical index number, generated from the list order. */
+.project-heading h3::before {
+  color: var(--text-tertiary);
+  content: counter(project, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  margin-bottom: var(--space-2);
+  transition: color 0.25s ease;
+}
+
+.status {
+  border: 1px solid;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+  padding: 0.2rem 0.6rem;
+  text-transform: uppercase;
+}
+
+.status-beta {
+  background-color: var(--signal-tint);
+  border-color: var(--signal);
+  color: var(--signal);
+}
+
+.status-deployed {
+  background-color: color-mix(in srgb, var(--success) 12%, transparent);
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.status-development {
+  border-color: var(--separator-strong);
+  color: var(--text-secondary);
+}
+
+.project-tags {
+  margin-top: var(--space-5);
+}
+
+.project-tags .tag {
+  font-size: 0.6875rem;
+}
+
+.project-description {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  margin-top: var(--space-4);
+  max-width: 44rem;
+}
+
+.project-points {
+  margin-top: var(--space-4);
+  max-width: 46rem;
+}
+
+.project-points li {
+  font-size: var(--fs-body-sm);
+  line-height: 1.7;
+  padding-left: var(--space-5);
+  position: relative;
+}
+
+.project-points li + li {
+  margin-top: var(--space-2);
+}
+
+.project-points li::before {
+  color: var(--accent);
+  content: "—";
+  left: 0;
+  position: absolute;
+}
+
+.project-note {
+  color: var(--text-secondary);
+  font-size: var(--fs-mono);
+  font-family: var(--font-mono);
+  letter-spacing: var(--ls-mono);
+  margin-top: var(--space-9);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .project-list {
+    gap: var(--space-7);
+  }
+
+  .project-entry {
+    padding-bottom: var(--space-7);
+  }
+
+  .project-heading {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .project-heading h3 {
+    font-size: 1.1875rem;
+  }
+
+  .status {
+    justify-self: start;
+  }
+
+  .project-note {
+    margin-top: var(--space-7);
+  }
+}
