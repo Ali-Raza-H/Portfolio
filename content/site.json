@@ -52,96 +52,195 @@
     ]
   },
 
-
   "projects": [
     {
+      "id": "ciel",
       "title": "CIEL",
       "subtitle": "Central Intelligence & Execution Layer",
       "status": "Experimental",
-      "year": "2026",
-      "summary": "CIEL is a local-first AI assistant and execution layer designed to move beyond chat. It brings conversational AI together with persistent memory, browser automation, desktop control and autonomous workflows, so an assistant can understand a request and meaningfully act on it within a real computer environment.",
+      "year": 2026,
+      "summary": "A local-first AI assistant and execution layer designed to bridge natural-language interaction with real computer operations. CIEL combines conversational reasoning with persistent memory, system control, browser automation, web search, coding agents, scheduled tasks and local services.",
       "details": [
-        "The system combines voice input and output, Playwright browser automation, desktop control and a modular tool architecture that can connect to external services without losing the context of the user’s wider workflow.",
-        "Built around Arch Linux, CIEL explores what a practical, highly integrated personal assistant can look like when local tools, memory and user control are treated as first-class parts of the product."
+        "I designed and developed CIEL as a modular personal computing assistant rather than a simple chatbot.",
+        "It combines conversational AI with real system capabilities including filesystem operations, shell commands, Arch Linux desktop control, web search through SearXNG, browser automation with Playwright, email access, scheduled tasks, LifeOS integration, text-to-speech and independent coding agents.",
+        "Its memory architecture combines ChromaDB for semantic retrieval with SQLite and structured fact storage so that different types of information can be retrieved appropriately.",
+        "I built the system around a routing and orchestration layer that determines how requests should be handled, with specialist workflows for coding, research, system design and code review, alongside ReAct-style execution loops, task queues and markdown-based skills.",
+        "One of the main challenges was preventing a system with many capabilities from becoming an unstructured collection of tools, so I separated reasoning, routing, memory and execution into distinct responsibilities and designed capabilities around defined interfaces and workflows.",
+        "This project taught me how complexity grows when AI models, tools and external systems are combined, and gave me practical experience in system architecture, agent orchestration, memory design, asynchronous execution, Linux automation and API integration.",
+        "ARIA was also explored as an experimental architecture during CIEL's development and is treated as part of CIEL rather than a separate project."
       ],
       "tags": [
         "Python",
-        "OpenAI API",
-        "Ollama",
-        "Kokoro",
-        "ChromaDB",
-        "SQLite",
-        "Playwright",
-        "PyAutoGUI",
-        "Arch Linux",
-        "D-Bus"
+        "AI Systems",
+        "Agent Architecture",
+        "Automation",
+        "Linux",
+        "APIs",
+        "System Design"
       ],
-      "github": "https://github.com/Ali-Raza-H/AI_Assistant",
-      "demo": ""
+      "github": "https://github.com/Ali-Raza-H/AI_Assistant"
     },
     {
+      "id": "lifeos",
       "title": "LifeOS",
-      "subtitle": "Personal operating system",
+      "subtitle": "Personal Operating System",
       "status": "Deployed",
-      "year": "2025",
-      "summary": "LifeOS is a full-stack personal management platform that gathers tasks, habits, goals, projects and journaling in one place. It was built around a simple question: what would a personal system feel like if it reflected how someone actually plans, thinks and changes direction?",
+      "year": 2025,
+      "summary": "A full-stack personal management platform designed to bring tasks, habits, projects, goals, journaling, notes, finance and personal planning into one system.",
       "details": [
-        "The Python and Flask backend is backed by a relational database, with features developed iteratively and restructured when the original architecture stopped serving the product.",
-        "It also exposes an API layer, allowing other applications such as CIEL to read and write useful information rather than remaining isolated tools."
+        "I designed and developed LifeOS as a central platform for managing different areas of personal life.",
+        "The application includes dashboards, tasks, habits, projects, goals, analytics, calendars, notes, journals, profiles and wider life-management modules.",
+        "I built both the backend and frontend and deployed the application for real-world use.",
+        "The backend is written in Python using Flask, with SQLite providing the database layer, while the frontend uses HTML, CSS and JavaScript with API endpoints connecting the interface to the backend.",
+        "The project also includes authentication, database-backed application logic, multiple API blueprints, bank-statement importing and integration with CIEL.",
+        "As the application grew from a simple personal tool into a larger platform, one of the main challenges was keeping the code maintainable as new features were added.",
+        "I learned to separate functionality into logical modules and API boundaries rather than continually expanding a single application layer.",
+        "I also had to diagnose and fix issues after deployment, which taught me to consider reliability and real-world behaviour rather than only whether code worked locally.",
+        "LifeOS gave me practical experience across the full development lifecycle, from database design and backend APIs through frontend development, debugging and deployment."
       ],
       "tags": [
         "Python",
         "Flask",
-        "SQLite3",
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "API design"
+        "Full Stack",
+        "SQLite",
+        "Web Development",
+        "APIs",
+        "Deployment"
       ],
-      "github": "https://github.com/Ali-Raza-H/lifeUpWebsite",
-      "demo": ""
+      "github": "https://github.com/Ali-Raza-H/lifeUpWebsite"
     },
     {
+      "id": "adml",
       "title": "ADML",
       "subtitle": "AutoDesign Markup Language",
       "status": "In development",
-      "year": "2026",
-      "summary": "A markup language exploring a more controllable route from AI instructions to polished visual design.",
+      "year": 2026,
+      "summary": "A declarative design language and compiler pipeline that converts structured design instructions into outputs such as PowerPoint, SVG and live HTML previews.",
       "details": [
-        "A custom syntax, parser and compiler pipeline.",
-        "An experiment in turning creative intent into predictable output."
+        "I designed ADML as a custom markup language for describing visual designs using structured, human-readable instructions rather than manually specifying every pixel-level detail.",
+        "The project includes a language specification, parser and compiler pipeline, validation system and multiple output renderers.",
+        "ADML source is converted into an internal representation before being passed through format-specific rendering stages, allowing the same high-level design to be rendered as PowerPoint, SVG or HTML.",
+        "I also built command-line tooling for compiling, validating, previewing and inspecting supported formats, alongside documentation covering the language specification, abstract design types, rendering architecture and guidance for developers and AI systems generating ADML.",
+        "The main challenge was creating an abstraction expressive enough to describe complex layouts while remaining predictable for a compiler and easy for humans or AI systems to generate.",
+        "I approached this by separating design intent from the final output format, allowing the underlying representation to remain independent from individual renderers.",
+        "Through ADML I developed a deeper understanding of language design, parsing, intermediate representations, compiler architecture and abstraction, while also learning the importance of designing systems around clear specifications rather than allowing implementation details to define the architecture."
       ],
       "tags": [
         "Python",
-        "Regex",
-        "python-pptx",
-        "Design systems"
+        "Compiler Design",
+        "Language Design",
+        "Automation",
+        "Design Systems",
+        "PowerPoint",
+        "SVG"
       ],
-      "github": "https://github.com/Ali-Raza-H/ADML",
-      "demo": ""
+      "github": "https://github.com/Ali-Raza-H/ADML"
     },
     {
+      "id": "pcp",
       "title": "PCP",
       "subtitle": "Portable Compute Protocol",
-      "status": "Research",
-      "year": "2026",
-      "summary": "An Arch-based portable computing environment designed to run primarily from RAM.",
+      "status": "In development",
+      "year": 2026,
+      "summary": "A systems project exploring how a complete personal computing environment could be carried on portable storage and run using the hardware of different host machines.",
       "details": [
-        "Exploring boot infrastructure, image generation and portability.",
-        "A hands-on way to understand the stack from firmware to operating system."
+        "I designed PCP around the idea that a complete computing environment should be portable rather than tied to one physical computer.",
+        "The concept uses a portable Arch Linux environment containing the operating system, applications, configuration and user data, while the host machine provides hardware resources such as compute, display, networking and input/output.",
+        "The project explores bootable Arch environments, read-only operating system storage, encrypted persistent data, authentication, session state and interaction with host hardware.",
+        "The central challenge is that operating systems normally assume a fixed relationship between software and hardware, so I approached PCP by treating the host as a resource provider and the portable environment as the user's persistent computing layer.",
+        "This required me to think about boot processes, hardware compatibility, storage architecture, security and what information should persist between machines.",
+        "PCP strengthened my understanding of Linux internals, boot systems, storage, filesystem architecture, hardware abstraction and systems design, while teaching me to think about computing environments as collections of interacting layers rather than simply an operating system installed on a particular machine."
       ],
       "tags": [
+        "Linux",
+        "Systems Engineering",
         "Arch Linux",
-        "archiso",
-        "Bash",
-        "mkinitcpio"
+        "Infrastructure",
+        "Security",
+        "Architecture"
       ],
-      "github": "",
-      "demo": ""
+      "github": "https://github.com/Ali-Raza-H/PCP"
+    },
+    {
+      "id": "devtool",
+      "title": "DevTool",
+      "subtitle": "Local Developer Project Manager",
+      "status": "Completed",
+      "year": 2026,
+      "summary": "A local command-line developer tool for managing software projects, development environments and common project workflows from a single interface.",
+      "details": [
+        "I built DevTool to reduce the repetitive setup and management work involved in working across multiple local software projects.",
+        "It provides commands for creating and registering projects, navigating to projects, starting and running them, and managing their active, inactive and archived states.",
+        "It also includes environment-management functionality such as automated handling of Python virtual environments.",
+        "Rather than relying on a collection of shell aliases and manually maintained directories, DevTool provides a structured layer over the local development workspace.",
+        "I approached the project by identifying repetitive operations in my own development workflow and turning them into predictable commands, while keeping the underlying behaviour transparent and controllable.",
+        "This project taught me how useful focused developer tooling can be even when the underlying operations are relatively simple, and gave me experience designing CLI interfaces, managing local environments, structuring filesystem-based workflows and thinking about software from the perspective of another developer."
+      ],
+      "tags": [
+        "Python",
+        "CLI Development",
+        "Virtual Environments",
+        "Filesystem APIs",
+        "Linux"
+      ],
+      "github": "https://github.com/Ali-Raza-H/devTool"
+    },
+    {
+      "id": "homelab-dashboard",
+      "title": "Homelab Dashboard",
+      "subtitle": "lxServer Dashboard",
+      "status": "Completed",
+      "year": 2026,
+      "summary": "A self-hosted web dashboard for monitoring and safely managing development projects running on a Linux homelab server.",
+      "details": [
+        "I built a lightweight web interface for managing projects on my Linux homelab.",
+        "The dashboard discovers projects within a configured development directory, displays project information and system statistics, provides project logs and exposes a controlled set of management actions.",
+        "The backend uses FastAPI and Uvicorn, with SQLite for application data and session management, while the frontend uses standard HTML, CSS and JavaScript.",
+        "I implemented authentication using username and password credentials, bcrypt password hashing and server-side sessions.",
+        "System information is collected with psutil, while WebSockets provide live log streaming.",
+        "One of the main design considerations was giving a web interface useful control over a server without turning it into an unrestricted remote shell.",
+        "I therefore separated safe predefined operations from arbitrary command execution and designed the dashboard around explicit capabilities and allowlisted actions.",
+        "This project taught me about building internal infrastructure tools where security and operational reliability matter alongside functionality, giving me practical experience with FastAPI, WebSockets, authentication, system monitoring, process management and safer approaches to remote administration."
+      ],
+      "tags": [
+        "Python",
+        "FastAPI",
+        "Linux",
+        "Infrastructure",
+        "WebSockets",
+        "Security",
+        "Homelab"
+      ],
+      "github": "https://github.com/Ali-Raza-H/lxServer-Dashboard"
+    },
+    {
+      "id": "content-pipeline",
+      "title": "Content Pipeline",
+      "subtitle": "Automated Faceless Content Production",
+      "status": "In development",
+      "year": 2026,
+      "summary": "An automated production pipeline for generating, processing, rendering and publishing short-form faceless video content.",
+      "details": [
+        "I developed Content Pipeline as an end-to-end automation system for producing short-form video content.",
+        "Rather than treating video creation as a single script, I designed the process as a sequence of jobs covering story generation, voiceover processing, background media, captions, rendering and publishing.",
+        "Python coordinates the pipeline while FFmpeg and ffprobe handle media processing.",
+        "The system uses FIFO-style buffers for content components, a job state machine for tracking production stages, Whisper-based caption generation, external services for language and voice generation, configuration files and dry-run support.",
+        "Publishing workflows include platform-specific handling for services such as YouTube and TikTok.",
+        "The main challenge was making a multi-stage media process reliable enough to run repeatedly without manually supervising every step, so I approached each stage as a distinct job with explicit state, validation and failure boundaries.",
+        "This makes it possible to identify where a production run failed instead of treating the entire workflow as one opaque process.",
+        "The project taught me about pipeline architecture, media processing, automation reliability and designing systems around asynchronous and failure-prone operations, while reinforcing that reliable automation requires state management, validation, retries, configuration and clear failure handling rather than simply connecting APIs together."
+      ],
+      "tags": [
+        "Python",
+        "Automation",
+        "Media Processing",
+        "FFmpeg",
+        "APIs",
+        "Pipeline Architecture"
+      ],
+      "github": "https://github.com/Ali-Raza-H/contentPipeline"
     }
-
   ],
-
 
   "skills": [
     [
@@ -260,7 +359,7 @@
   ],
   "journey": [
     [
-      "2024",
+      "JUN 2024",
       "Graduated Essa Academy",
       "Completed 8 GCSEs at grade 4 or above, including Computer Science, Graphics, Mathematics, Science, English Language and English Literature."
     ],
@@ -270,15 +369,42 @@
       "Started A Level Computer Science, A Level Graphics and a BTEC Certificate in ICT — intentionally combining technical foundations with visual communication."
     ],
     [
-      "2025–26",
-      "Independent systems practice",
-      "Developed LifeOS, CIEL, ADML and PCP: a set of projects spanning full-stack applications, local AI, automation, structured design generation and Linux infrastructure."
+      "MAY 2025 - JUN 2025",
+      "BWA PC Builds",
+      "Started freelance work as a web developer for an E-Commerce platform that sells PCs and PC related services."
     ],
     [
-      "Now",
-      "Building in public",
-      "Continuing to deepen my software engineering and graphic design practice through independent work, experimentation and client-ready projects."
+      "JUL 2025 - JAN 2026",
+      "Gadget Labs",
+      "Founder and Developer of independent e-commerce platforms focused on technology and modern consumer products. Platform later discontinued to focus on other priorities."
+    ],
+    [
+      "MAY 2026",
+      "Dev Tool",
+      "Deployed my local project manager tool on github called devTool. This tool helps me manage all my projects in a clean format as well as track them and perform quick actions."
+    ],
+    [
+      "JUN 2026",
+      "ADML",
+      "Started developing the Auto Design Markup Language. A language tuned for LLMs to improve the quality of professional design work including presentations, print works, icons amongst others"
+    ],
+    [
+      "JUN 2026",
+      "PCP",
+      "Started designing a arch based operating system optimized for portability and anomisity. Currently in development"
+    ],
+    [
+      "JUN 2026",
+      "The Sixth Form Bolton",
+      "Graduated from The Sixth Form Bolton on A Levels Graphics and Computer Science as well as BTEC in ICT and AS Level on Maths"
+    ],
+    [
+      "JUL 2026",
+      "LifeOS",
+      "Developed a full website with backend to manage and track every aspect of my life. Including tasks, gloas, habits, projects, journals finnances amongst others."
     ]
+
+
   ],
   "graphicsProjects": [
     {

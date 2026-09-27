@@ -114,7 +114,7 @@
 .page-intro h1,
 .contact-main h1 {
   font: 900 clamp(3rem,7vw,6.8rem)/.88 var(--display);
-  letter-spacing: -.085em;
+  letter-spacing: -.055em;
   margin: 1.2rem 0 2rem;
   max-width: 13ch;
 }
@@ -157,13 +157,13 @@
   max-width: 46rem;
 }
 .project li {
-  font-size: .96rem;
-  margin: .75rem 0;
+  font-size: .90rem;
+  margin: .5rem 0;
   padding-left: 1rem;
   position: relative;
 }
 .project li::before {
-  content: "—";
+  content: "•";
   left: 0;
   position: absolute;
 }
