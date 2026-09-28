@@ -1,0 +1,35 @@
+Home page:
+ - About section on 03/04
+
+Projects page:
+ - Fix heading text
+ - CIEL Details (old structure is there needs updating)
+ - Fix dates for projects
+ - ADML, need to update compatible exports
+ - Update content pipeline project details
+ - Update all projects status
+
+Graphics page:
+ - Fix heading
+ - Add option to install sketchbook
+ - Add more briefs and work
+
+Practice page:
+ - Fix the lies into more beliveable lies
+ - Fix subheading
+ - Add things on timeline 
+
+Restructuring of pages and sections.
+
+Home page is fine.
+
+Work Page:
+Rename to dev work
+Move work expirience here.
+
+Graphics page is fine.
+
+Practice page:
+Rename to education
+Add education section
+Keep strictly for skills, education and timeline
