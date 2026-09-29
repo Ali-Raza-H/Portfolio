@@ -71,6 +71,14 @@
     transform var(--motion-reveal) var(--motion-ease)
       var(--reveal-delay, 0ms);
 }
+.graphic-case-study[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.graphic-case-study[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 [data-reveal].is-visible {
   opacity: 1;
   transform: translateY(0);
@@ -135,12 +143,14 @@
   }
 }
 @media (prefers-reduced-motion:reduce) {
-  [data-reveal] {
+  [data-reveal],
+  .graphic-case-study[data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;
   }
   .graphic-piece .graphic-image img,
+  .graphic-case-study,
   .project,
   .skill-row,
   .journey-item h2,
@@ -154,6 +164,7 @@
     filter: none;
     transform: none;
   }
+  .graphic-case-study[data-reveal],
   .graphic-case-study .graphic-piece:hover {
     box-shadow: none;
     transform: none;

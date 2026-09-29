@@ -1,23 +1,9 @@
-Home page:
- - About section on 03/04
-
-Projects page:
- - Fix heading text
- - CIEL Details (old structure is there needs updating)
- - Fix dates for projects
- - ADML, need to update compatible exports
- - Update content pipeline project details
- - Update all projects status
-
 Graphics page:
- - Fix heading
  - Add option to install sketchbook
  - Add more briefs and work
 
 Practice page:
  - Fix the lies into more beliveable lies
- - Fix subheading
- - Add things on timeline 
 
 Restructuring of pages and sections.
 
@@ -33,3 +19,31 @@ Practice page:
 Rename to education
 Add education section
 Keep strictly for skills, education and timeline
+
+
+Highest-impact issues
+
+1. Graphics is the only case study. The page promises more work to come, but the single Bliss55 collection makes the portfolio feel unfinished. Add more briefs or present a clear “more work in progress” treatment.
+2. The graphics brief attachment feature has no actual attachment yet. That’s fine as a capability, but the sample Bliss55 brief path shouldn’t be configured until the file exists.
+3. The Dev Work project list is text-heavy. Seven projects each display long summaries and extensive detail lists, which makes the page a long read. Consider shorter previews with a clear visual hierarchy and an optional “more details” interaction.
+4. The home hero and inner-page heroes don’t quite match. Home has a portrait and longer intro; internal pages have a shorter intro and the new square icon. That distinction can work, but the icon size/alignment varies as headings wrap, and the Graphics page’s descriptive paragraph appears after the heading while the other heroes have no supporting text.
+5. The Education page repeats the learning story. School/course cards are followed by a timeline that also includes school milestones. The timeline has useful project history too, but the overlap makes education feel repeated.
+
+Consistency and content issues
+
+- Time periods aren’t presented consistently: “May–Jun 2024,” “Aug 2025,” and “September 2024 – June 2026” use different formats, and some only give a completion date. Standardizing to “Mon YYYY – Mon YYYY” (or “Completed Mon YYYY”) would help scanning.
+- Navigation labels don’t always match destinations: Home’s CTA says “See selected work” but links to Dev Work, and CV links are repeated in several page footers and on Home.
+- Contact is mostly a CV/contact-details page. A clear primary email action would be more direct; the current text says email is best but leaves the user to find it further down.
+- Project status labels mix styles (“In Beta,” “In development,” “Deployed,” “Completed”). Consistent capitalization and a defined status vocabulary would make them feel deliberate.
+- Some content copy has visible spelling/grammar issues in the timeline and project text (for example, “anomisity,” “gloas,” “finnances,” and “LLM's”). These are small individually but stand out in a portfolio.
+
+Layout, motion, and accessibility
+
+- The CSS has overlapping layers of overrides.  global.css ,  portfolio.css , and the long  custom.css  each restyle headings and components. That makes it easy for one page’s refinement to regress another and leaves some rules duplicated.
+- The reveal animation targets nested elements as well as their containers. For example, the project page intro, section heading, and project cards all reveal independently; on long pages, this can feel staggered without a consistent rhythm.
+- A few hover effects shift layout by changing project/skill row padding. That can create small page movement; transforms or background-only feedback are steadier.
+- Some small text may be difficult to read on the muted palette, particularly metadata and tiny uppercase labels. A contrast check and slightly larger minimum size would help.
+- The nav’s progress-bar code has no matching element in the pages, so it currently appears to be leftover behavior rather than a visible feature.
+- The social links and icon marks are visually decorative; keyboard/focus behavior is mostly present, but I’d verify it in an actual browser at narrow widths and with reduced motion enabled.
+
+Suggested order: complete the Graphics page content, shorten Dev Work previews, remove timeline duplication, unify date/status formatting, then consolidate CSS and tune the animation rhythm. I couldn’t visually inspect rendered breakpoints here, so the responsive notes are based on the markup and CSS rather than browser screenshots.

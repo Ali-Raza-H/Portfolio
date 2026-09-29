@@ -16,6 +16,10 @@ until you fill them in.
   "discipline": "Identity / Campaign / Editorial",
   "year": "2026",
   "overview": "A short summary of the project and its goal.",
+  "attachment": {
+    "url": "assets/graphics/my-project-brief.pdf",
+    "label": "Full brief (PDF)"
+  },
   "brief": ["What was requested? Who was it for? What constraints mattered?"],
   "thinking": ["What directions did you consider, and why choose this one?"],
   "process": ["How did research, exploration, feedback, and refinement work?"],
@@ -35,6 +39,14 @@ until you fill them in.
 ```
 
 Use a relative path such as `assets/graphics/my-poster.jpg`.
+
+To attach a PDF or PowerPoint containing the complete brief, add its file under
+`assets/graphics/` and set the case study's optional `attachment` field in
+`content/site.json` to the relative file path (or to an object with `url` and an
+optional `label`, as in the example). The page will show separate open and
+download links. Supported files can include PDF and PowerPoint formats; opening
+PowerPoint files depends on the visitor's browser/device, while downloading
+remains available.
 
 ## Setting the size of each image
 

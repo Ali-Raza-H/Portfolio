@@ -6,12 +6,16 @@ const icons = {
   tiktok:
     '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.5 2h-3v13.1a2.4 2.4 0 1 1-2.4-2.4c.2 0 .5 0 .7.1V9.6A5.6 5.6 0 1 0 16.5 15V8.9a7.2 7.2 0 0 0 4 1.2V7.1a4.2 4.2 0 0 1-4-3.8V2Z"/></svg>',
 };
+
+
 const esc = (value) =>
   String(value).replace(
     /[&<>\"]/g,
     (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '\"': "&quot;" })[char],
   );
-function addImageFallback(img, label) {
+
+
+  function addImageFallback(img, label) {
   const showFallback = () => {
     const wrapper = img.parentElement;
     if (!wrapper || wrapper.classList.contains("image-missing")) return;
@@ -28,6 +32,8 @@ function addImageFallback(img, label) {
   img.addEventListener("error", showFallback, { once: true });
   if (img.complete && img.currentSrc && img.naturalWidth === 0) showFallback();
 }
+
+
 const socialMarkup = (identity) =>
   identity.socials.map((item) =>
     item.url
@@ -45,7 +51,9 @@ const socialMarkup = (identity) =>
     ? `<a class="text-link" href="mailto:${esc(identity.email)}">Email me ↗</a>`
     : "");
 
-function shared(identity) {
+
+
+    function shared(identity) {
   document.querySelectorAll("[data-name]").forEach((node) =>
     node.textContent = identity.name
   );
@@ -60,6 +68,9 @@ function shared(identity) {
     node.innerHTML = socialMarkup(identity)
   );
 }
+
+
+
 function home(data) {
   const page = data.home;
   document.querySelector("[data-home-kicker]").textContent = page.kicker;
@@ -89,6 +100,9 @@ function home(data) {
   ) => `<div><strong>${esc(value)}</strong><span>${esc(label)}</span></div>`)
     .join("");
 }
+
+
+
 function projects(data) {
   const projectLinks = (project) => {
     const links = [];
@@ -116,11 +130,9 @@ function projects(data) {
   };
   document.querySelector("[data-projects]").innerHTML = data.projects.map((
     project,
-    index,
   ) =>
-    `<article class="project"><div class="project-index">${
-      String(index + 1).padStart(2, "0")
-    } / ${
+    `<article class="project"><div class="project-index">
+    ${
       esc(project.year)
     }</div><div class="project-main"><p class="project-subtitle">${
       esc(project.subtitle)
@@ -135,6 +147,25 @@ function projects(data) {
     }</span></div></article>`
   ).join("");
 }
+
+
+
+function experience(data) {
+  const container = document.querySelector("[data-experience]");
+  if (!container) return;
+  container.innerHTML = (data.experience || []).map((role, index) =>
+    `<article class="experience-card"><div class="experience-meta"><span>${
+      String(index + 1).padStart(2, "0")
+    } / ${esc(role.period)}</span><span class="experience-type">${
+      esc(role.type)
+    }</span></div><div class="experience-body"><p class="experience-organization">${
+      esc(role.organization)
+    }</p><h3>${esc(role.role)}</h3><p class="experience-summary">${
+      esc(role.summary)
+    }</p><ul>${(role.details || []).map((detail) => `<li>${esc(detail)}</li>`).join("")}</ul></div><span class="experience-arrow" aria-hidden="true">↗</span></article>`
+  ).join("");
+}
+
 function skills(data) {
   document.querySelector("[data-skills]").innerHTML = data.skills.map((
     [title, items],
@@ -146,21 +177,34 @@ function skills(data) {
       items.map((item) => `<span>${esc(item)}</span>`).join("")
     }</div></section>`
   ).join("");
-  document.querySelector("[data-experience]").innerHTML = data.experience.map((
-    role,
-    index,
-  ) =>
-    `<article class="experience-card"><div class="experience-meta"><span>${
-      String(index + 1).padStart(2, "0")
-    } / ${esc(role.period)}</span><span class="experience-type">${
-      esc(role.type)
-    }</span></div><div class="experience-body"><p class="experience-organization">${
-      esc(role.organization)
-    }</p><h3>${esc(role.role)}</h3><p class="experience-summary">${
-      esc(role.summary)
-    }</p><ul>${role.details.map((detail) => `<li>${esc(detail)}</li>`).join("")}</ul></div><span class="experience-arrow" aria-hidden="true">↗</span></article>`
-  ).join("");
+  const education = document.querySelector("[data-education]");
+  if (education) {
+    education.innerHTML = (data.education || []).map((item, index) => {
+      const courses = Array.isArray(item.courses) ? item.courses : [];
+      const courseList = courses.map((course) => {
+        const name = typeof course === "string" ? course : course.name;
+        const grade = typeof course === "object" && course
+          ? course.grade
+          : "";
+        return `<li><span>${esc(name)}</span>${
+          grade ? `<span class="education-grade">${esc(grade)}</span>` : ""
+        }</li>`;
+      }).join("");
+      return `<article class="education-card"><header class="education-card-header"><p class="education-level">${
+        esc(item.level || "Education")
+      }</p><span class="education-index">${String(index + 1).padStart(2, "0")}</span></header><h3>${
+        esc(item.school || "Education")
+      }</h3><p class="education-timeframe"><span>Attended</span>${
+        esc(item.timeframe || "")
+      }</p><div class="education-courses"><p class="education-courses-label">Courses</p><ul>${
+        courseList
+      }</ul></div><p class="education-description">${
+        esc(item.description || "")
+      }</p></article>`;
+    }).join("");
+  }
   const timeline = document.querySelector("[data-journey]");
+  if (!timeline) return;
   timeline.classList.add("timeline");
   timeline.innerHTML = data.journey.map(([date, title, copy]) =>
     `<article class="journey-item"><time>${esc(date)}</time><div><h2>${
@@ -309,12 +353,30 @@ function graphics(data) {
     const overview = typeof project.overview === "string" && project.overview.trim()
       ? `<p class="graphic-case-overview">${esc(project.overview)}</p>`
       : "";
+    const attachment = typeof project.attachment === "string"
+      ? { url: project.attachment }
+      : project.attachment && typeof project.attachment === "object"
+      ? project.attachment
+      : null;
+    const attachmentUrl = attachment && typeof attachment.url === "string"
+      ? attachment.url.trim()
+      : "";
+    const safeAttachmentUrl = /^(https?:\/\/|\/|\.\.\/|\.\/|[\w.-]+\/)/i
+        .test(attachmentUrl) && !/^\s*javascript:/i.test(attachmentUrl)
+      ? attachmentUrl
+      : "";
+    const attachmentLabel = attachment && typeof attachment.label === "string" && attachment.label.trim()
+      ? attachment.label.trim()
+      : "Full brief";
+    const attachmentMarkup = safeAttachmentUrl
+      ? `<div class="graphic-brief-attachment"><span>${esc(attachmentLabel)}</span><a href="${esc(safeAttachmentUrl)}" target="_blank" rel="noopener noreferrer">Open ↗</a><a href="${esc(safeAttachmentUrl)}" download>Download ↓</a></div>`
+      : "";
     const title = typeof project.title === "string" && project.title.trim()
       ? project.title
       : `Project ${projectIndex + 1}`;
     return `<article class="graphic-case-study"><header class="graphic-case-header"><div><p class="graphic-case-index">CASE STUDY / ${
       String(projectIndex + 1).padStart(2, "0")
-    }</p><h2 id="graphic-project-${projectIndex}-title">${esc(title)}</h2></div><div class="graphic-case-meta">${metadata}</div></header>${overview}${
+    }</p><h2 id="graphic-project-${projectIndex}-title">${esc(title)}</h2></div><div class="graphic-case-meta">${metadata}</div></header>${overview}${attachmentMarkup}${
       narrative ? `<div class="graphic-case-narrative">${narrative}</div>` : ""
     }${
       pieces.length
@@ -447,28 +509,25 @@ function contact(identity) {
 }
 function animatePage() {
   const targets = document.querySelectorAll(
-    ".page-intro, .home-hero .hero-copy, .portrait-wrap, .section-head, .about-copy, .facts, .project, .skill-row, .journey-item, .graphic-case-study, .contact-main > *",
+    ".page-intro, .home-hero .hero-copy, .portrait-wrap, .section-head, .about-heading, .about-card, .facts > div, .project, .experience-card, .education-card, .skill-row, .journey-item, .graphic-case-header, .graphic-case-study, .graphic-brief-attachment, .contact-main > *, .footer-top, .footer-bottom",
   );
-  targets.forEach((target, index) => {
-    target.dataset.reveal = "";
-    target.style.setProperty(
-      "--reveal-delay",
-      `${Math.min(index % 5, 4) * 70}ms`,
-    );
-  });
   const graphicPieces = document.querySelectorAll(
     ".graphic-case-study .graphic-piece",
   );
-  graphicPieces.forEach((piece, index) => {
-    piece.dataset.reveal = "";
-    piece.style.setProperty("--reveal-delay", `${(index % 5) * 70}ms`);
+  const revealTargets = [...targets, ...graphicPieces];
+  const staggerCounts = new Map();
+  revealTargets.forEach((target) => {
+    target.dataset.reveal = "";
+    const parent = target.parentElement;
+    const index = staggerCounts.get(parent) || 0;
+    staggerCounts.set(parent, index + 1);
+    target.style.setProperty("--reveal-delay", `${Math.min(index, 4) * 70}ms`);
   });
   if (
     !("IntersectionObserver" in window) ||
     window.matchMedia("(prefers-reduced-motion: reduce)").matches
   ) {
-    targets.forEach((target) => target.classList.add("is-visible"));
-    graphicPieces.forEach((piece) => piece.classList.add("is-visible"));
+    revealTargets.forEach((target) => target.classList.add("is-visible"));
     return;
   }
   const observer = new IntersectionObserver((entries, currentObserver) => {
@@ -478,8 +537,7 @@ function animatePage() {
       currentObserver.unobserve(entry.target);
     });
   }, { threshold: 0.12 });
-  targets.forEach((target) => observer.observe(target));
-  graphicPieces.forEach((piece) => observer.observe(piece));
+  revealTargets.forEach((target) => observer.observe(target));
 }
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -488,7 +546,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = await response.json();
     shared(data.identity);
     if (document.body.dataset.page === "home") home(data);
-    if (document.body.dataset.page === "projects") projects(data);
+    if (document.body.dataset.page === "projects") {
+      projects(data);
+      experience(data);
+    }
     if (document.body.dataset.page === "skills") skills(data);
     if (document.body.dataset.page === "graphics") graphics(data);
     if (document.body.dataset.page === "contact") contact(data.identity);

@@ -33,8 +33,8 @@
     "about": [
       "I’m most at home where technical problem-solving and visual thinking overlap. I like understanding systems from the inside out, finding the awkward parts, then designing better ways to solve them. Whether I’m building a local AI assistant, a personal operating system, a web application or a visual identity, I care about how the pieces work together rather than simply making something that works once.",
       "My practice is self-directed and hands-on. I’ve built and deployed projects using Python, Flask, SQLite, JavaScript, HTML and CSS, while exploring technologies including LLMs, local AI, browser automation, vector databases, Linux desktop control and text-to-speech. Alongside software, my background in graphics gives me a strong interest in visual communication, interface design and making technical products feel intentional.",
-      "I’m particularly interested in building tools that give people more control over their technology. Projects such as CIEL, my local-first AI assistant, and LifeOS, my personal productivity and life-management platform, reflect that approach: understand the problem, build the system, test it in the real world, then keep improving it.",
-      "I speak English and Spanish fluently, with Urdu as my native language."
+      "I’m particularly interested in building tools that give people more control over their technology. Projects such as CIEL, my local-first AI assistant, and LifeOS, my personal productivity and life-management platform, reflect that approach. I like to understand a problem, build a system around it, test it in the real world, and keep refining it based on what I learn.",
+      "I speak English and Spanish fluently, with Urdu as my native language. Growing up with multiple languages has taught me to communicate with people from different backgrounds and adapt the way I approach problems depending on who I’m working with. It’s something I value both personally and professionally, especially when collaborating with people who bring different perspectives and ways of thinking."
     ],
     "facts": [
       [
@@ -57,17 +57,17 @@
       "id": "ciel",
       "title": "CIEL",
       "subtitle": "Central Intelligence & Execution Layer",
-      "status": "Experimental",
+      "status": "In Beta",
       "year": 2026,
       "summary": "A local-first AI assistant and execution layer designed to bridge natural-language interaction with real computer operations. CIEL combines conversational reasoning with persistent memory, system control, browser automation, web search, coding agents, scheduled tasks and local services.",
       "details": [
         "I designed and developed CIEL as a modular personal computing assistant rather than a simple chatbot.",
         "It combines conversational AI with real system capabilities including filesystem operations, shell commands, Arch Linux desktop control, web search through SearXNG, browser automation with Playwright, email access, scheduled tasks, LifeOS integration, text-to-speech and independent coding agents.",
         "Its memory architecture combines ChromaDB for semantic retrieval with SQLite and structured fact storage so that different types of information can be retrieved appropriately.",
-        "I built the system around a routing and orchestration layer that determines how requests should be handled, with specialist workflows for coding, research, system design and code review, alongside ReAct-style execution loops, task queues and markdown-based skills.",
+        "I built the system around a compatibility layer that allows LLM's without native tool support to handle tool requests which includes specialist workflows for coding, research, system design and code review, alongside ReAct-style execution loops, task queues and markdown-based skills.",
         "One of the main challenges was preventing a system with many capabilities from becoming an unstructured collection of tools, so I separated reasoning, routing, memory and execution into distinct responsibilities and designed capabilities around defined interfaces and workflows.",
         "This project taught me how complexity grows when AI models, tools and external systems are combined, and gave me practical experience in system architecture, agent orchestration, memory design, asynchronous execution, Linux automation and API integration.",
-        "ARIA was also explored as an experimental architecture during CIEL's development and is treated as part of CIEL rather than a separate project."
+        "ARIA was also explored as an experimental architecture during CIEL's development and is treated as an experimental stage of CIEL."
       ],
       "tags": [
         "Python",
@@ -85,7 +85,7 @@
       "title": "LifeOS",
       "subtitle": "Personal Operating System",
       "status": "Deployed",
-      "year": 2025,
+      "year": 2026,
       "summary": "A full-stack personal management platform designed to bring tasks, habits, projects, goals, journaling, notes, finance and personal planning into one system.",
       "details": [
         "I designed and developed LifeOS as a central platform for managing different areas of personal life.",
@@ -165,7 +165,7 @@
       "id": "devtool",
       "title": "DevTool",
       "subtitle": "Local Developer Project Manager",
-      "status": "Completed",
+      "status": "Deployed",
       "year": 2026,
       "summary": "A local command-line developer tool for managing software projects, development environments and common project workflows from a single interface.",
       "details": [
@@ -190,7 +190,7 @@
       "title": "Homelab Dashboard",
       "subtitle": "lxServer Dashboard",
       "status": "Completed",
-      "year": 2026,
+      "year": 2025,
       "summary": "A self-hosted web dashboard for monitoring and safely managing development projects running on a Linux homelab server.",
       "details": [
         "I built a lightweight web interface for managing projects on my Linux homelab.",
@@ -217,7 +217,7 @@
       "id": "content-pipeline",
       "title": "Content Pipeline",
       "subtitle": "Automated Faceless Content Production",
-      "status": "In development",
+      "status": "Deployed",
       "year": 2026,
       "summary": "An automated production pipeline for generating, processing, rendering and publishing short-form faceless video content.",
       "details": [
@@ -333,6 +333,34 @@
       ]
     ]
   ],
+  "education": [
+    {
+      "school": "The Sixth Form Bolton",
+      "level": "College",
+      "timeframe": "September 2024 – June 2026",
+      "courses": [
+        { "name": "A Level Computer Science" },
+        { "name": "A Level Graphics" },
+        { "name": "BTEC Certificate in ICT" },
+        { "name": "AS Level Mathematics" }
+      ],
+      "description": "Combined technical study with visual communication, building a foundation across computing, graphics, ICT and mathematics."
+    },
+    {
+      "school": "Essa Academy",
+      "level": "High school",
+      "timeframe": "Completed June 2024",
+      "courses": [
+        { "name": "Computer Science" },
+        { "name": "Graphics" },
+        { "name": "Mathematics" },
+        { "name": "Science" },
+        { "name": "English Language" },
+        { "name": "English Literature" }
+      ],
+      "description": "Completed eight GCSEs at grade 4 or above, including the subjects listed here."
+    }
+  ],
   "experience": [
     {
       "period": "May–Jun 2024",
@@ -402,6 +430,16 @@
       "JUL 2026",
       "LifeOS",
       "Developed a full website with backend to manage and track every aspect of my life. Including tasks, gloas, habits, projects, journals finnances amongst others."
+    ],
+    [
+      "JUL 2026",
+      "CIEL",
+      "Started to develop my local AI Assistant with a multitude of tools including form shell access, lifeOS integration cron jobs, web search and automation"
+    ],
+    [
+      "NOW",
+      "Continuing with my projects",
+      "Currently I'm focusing on finishing up my active projects which include but are not limited to ADML, PCP and CIEL"
     ]
 
 

@@ -147,7 +147,7 @@ a {
   padding: 6.5rem 0;
 }
 .section-head {
-  display: flex;
+  /*display: flex;*/
   justify-content: space-between;
   margin-bottom: 3.5rem;
 }
@@ -155,6 +155,7 @@ a {
   font: 800 clamp(2rem,4vw,4rem)/.95 var(--display);
   letter-spacing: -.07em;
   max-width: 12ch;
+  margin: 1.2rem 0 2rem
 }
 .site-footer {
   background: var(--ink);

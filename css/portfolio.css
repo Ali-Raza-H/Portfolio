@@ -9,8 +9,8 @@
   padding-bottom: 2rem;
 }
 .home-hero h1 {
-  font: 900 clamp(3.5rem,7vw,7rem)/.86 var(--display);
-  letter-spacing: -.085em;
+  font: 900 clamp(3.5rem,7vw,7rem)/.98 var(--display);
+  letter-spacing: -.045em;
   margin: 1.3rem 0 2rem;
   max-width: 10ch;
 }
@@ -100,8 +100,8 @@
 }
 .facts strong {
   display: block;
-  font: 800 clamp(2rem,4vw,3.6rem)/1 var(--display);
-  letter-spacing: -.07em;
+  font: 800 clamp(2rem,4vw,3.6rem)/1.08 var(--display);
+  letter-spacing: -.045em;
 }
 .facts span {
   color: var(--muted);
@@ -113,8 +113,8 @@
 }
 .page-intro h1,
 .contact-main h1 {
-  font: 900 clamp(3rem,7vw,6.8rem)/.88 var(--display);
-  letter-spacing: -.055em;
+  font: 900 clamp(3rem,7vw,6.8rem)/1.02 var(--display);
+  letter-spacing: -.035em;
   margin: 1.2rem 0 2rem;
   max-width: 13ch;
 }
@@ -139,8 +139,8 @@
   text-transform: uppercase;
 }
 .project-main h2 {
-  font: 800 clamp(2.5rem,5vw,4.6rem)/.87 var(--display);
-  letter-spacing: -.08em;
+  font: 800 clamp(2.5rem,5vw,4.6rem)/1 var(--display);
+  letter-spacing: -.045em;
   margin: .25rem 0 1.4rem;
 }
 .project-subtitle {
@@ -196,8 +196,8 @@
 }
 .skill-row h2,
 .journey-item h2 {
-  font: 800 1.5rem/.95 var(--display);
-  letter-spacing: -.05em;
+  font: 800 1.5rem/1.1 var(--display);
+  letter-spacing: -.035em;
 }
 .skill-row div {
   display: flex;
@@ -229,6 +229,7 @@
 }
 .journey-item h2 {
   font-size: clamp(1.5rem,3vw,2.4rem);
+  line-height: 1.12;
 }
 .journey-item p {
   color: #d0cdc5;
